@@ -1,9 +1,11 @@
 import faker from 'faker';
+//import dbConnect from './utils/dbConnect';
 import Condition from './src/models/Condition';
 import Category from './src/models/Category';
 import Company from './src/models/Company';
 import Contact from './src/models/Contact';
 
+//dbConnect();
 
 export const seedCategory = async () => {
     try {
@@ -162,3 +164,9 @@ export const seedContact = async () => {
         console.log(error);
     }
 }
+
+    // Databse Seeds
+    // seedCategory();
+    // seedCompany();
+    // seedCondition();
+    // seedContact();
