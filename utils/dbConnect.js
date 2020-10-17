@@ -1,8 +1,4 @@
 import mongoose from 'mongoose';
-import { seedCondition } from '../seed'
-import { seedCategory } from '../seed'
-import { seedCompany } from '../seed'
-import { seedContact } from '../seed'
 
 const connection = {};
 
@@ -17,10 +13,6 @@ async function dbConnect() {
     });
 
     //Databse Seeds
-    seedCategory();
-    seedCompany();
-    seedCondition();
-    seedContact();
 
 
     connection.isConnected = db.connections[0].readyState;

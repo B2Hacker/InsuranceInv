@@ -1,5 +1,5 @@
 import dbConnect from "../../../../utils/dbConnect";
-import Location from "../../../models/Location";
+import Room from "../../../models/Room";
 
 dbConnect();
 
@@ -9,12 +9,12 @@ export default async (req, res) => {
 switch (method) {
     case 'GET':
         try {
-            const location = await Location.findById(id);
+            const room = await Room.findById(id);
 
-            if (!location) {
+            if (!room) {
                 return res.status(400).json({success: false});
             }
-            res.status(200).json({success: true, data: location});
+            res.status(200).json({success: true, data: room});
 
         } catch (error) {
             return res.status(400).json({success: false, message: error.message});
@@ -23,15 +23,15 @@ switch (method) {
     
     case 'PUT':
         try {
-            const location = await Location.findByIdAndUpdate(id, req.body, {
+            const room = await Room.findByIdAndUpdate(id, req.body, {
                 new: true,
                 runValidators: true
             });
     
-            if (!location) {
+            if (!room) {
                 return res.status(400).json({success: false});
             }
-            res.status(200).json({success: true, data: location});
+            res.status(200).json({success: true, data: room});
     
         } catch (error) {
             return res.status(400).json({success: false, message: error.message});
@@ -40,12 +40,12 @@ switch (method) {
 
     case 'DELETE':
         try {
-            const deletedLocation = await Location.deleteOne({_id: id});
+            const deletedRoom = await Room.deleteOne({_id: id});
         
-            if (!deletedLocation) {
+            if (!deletedRoom) {
                 return res.status(400).json({success: false});
             }
-            res.status(200).json({success: true, data: deletedLocation});
+            res.status(200).json({success: true, data: deletedRoom});
         
         } catch (error) {
             return res.status(400).json({success: false, message: error.message});

@@ -1,8 +1,9 @@
-import faker, { company } from 'faker';
+import faker from 'faker';
 import Condition from './src/models/Condition';
 import Category from './src/models/Category';
 import Company from './src/models/Company';
 import Contact from './src/models/Contact';
+
 
 export const seedCategory = async () => {
     try {

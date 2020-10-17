@@ -1,5 +1,5 @@
 import dbConnect from "../../../../utils/dbConnect";
-import Location from "../../../models/Location";
+import Room from "../../../models/Room";
 
 dbConnect();
 
@@ -9,8 +9,8 @@ export default async (req, res) => {
 switch (method) {
     case 'GET':
         try {
-            const locations = await Location.find({});
-            res.status(200).json({success: true, data: locations});
+            const rooms = await Room.find({});
+            res.status(200).json({success: true, data: rooms});
 
         } catch (error) {
             return res.status(400).json({success: false, message: error.message});
@@ -19,8 +19,8 @@ switch (method) {
     
     case 'POST':
         try {
-            const location = await Location.create(req.body);
-            res.status(201).json({success: true, data: location});
+            const room = await Room.create(req.body);
+            res.status(201).json({success: true, data: room});
     
         } catch (error) {
             return res.status(400).json({success: false, message: error.message});
