@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "faker": "^5.1.0",
+    "lodash.sample": "^4.2.1",
     "mongoose": "^5.10.9",
     "next": "9.5.5",
     "react": "16.13.1",

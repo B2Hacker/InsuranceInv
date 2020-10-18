@@ -18,7 +18,7 @@ const ContractSchema = new mongoose.Schema({
     Emergency: {type: String, required: true, trim: true},
     dateStart: {type: Date},
     dateEnd: {type: Date},
-    dateRenewal: { ype: Date},
+    dateRenewal: { type: Date},
     dateRenewalReminder: {type: Date},
     cost: {type: Number, trim: true},
     paymentType: {type: String, trim: true}
