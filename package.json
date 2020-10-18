@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "faker": "^5.1.0",
     "loadash": "^1.0.0",
     "lodash.sample": "^4.2.1",
