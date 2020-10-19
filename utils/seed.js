@@ -1,60 +1,18 @@
-const seeder = require ('mongoose-seed');
-const faker = require ('faker');
-const lodash = require('lodash')
-const sample = lodash.sample;
-const Category = require("./src/models/Category")
-const Company = require("./src/models/Company")
-const Condition = require("./src/models/Condition")
-const Contact = require("./src/models/Contact")
-const Contract = require("./src/models/Contract")
-const Item = require("./src/models/Item")
-const Location = require("./src/models/Location")
-const Room = require("./src/models/Room")
-const SubCategory = require("./src/models/SubCategory")
-
-const mongoose = require('mongoose')
-
-const connection = {};
-
-async function dbConnect() {
-    if (connection.isConnected) {
-        return;
-    }
-
-	const dbURL = "mongodb+srv://B2Original:xjACWmTGS4jYVnWV@defaultcluster.z4skv.mongodb.net/InsInvDB?retryWrites=true&w=majority";
-
-    const db = await mongoose.connect(dbURL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
-
-    connection.isConnected = db.connections[0].readyState;
-    console.log(connection.isConnected);
-}
+import faker from 'faker';
+import dbConnect from './dbConnect';
+import lodash from'lodash';
+import sample from 'lodash.sample';
+import Category from '../src/models/Category';
+import Company from '../src/models/Company';
+import Condition from '../src/models/Condition';
+import Contact from '../src/models/Contact';
+import Contract from '../src/models/Contract';
+import Item from '../src/models/Item';
+import Location from '../src/models/Location';
+import Room from '../src/models/Room';
+import SubCategory from '../src/models/SubCategory';
 
 dbConnect();
-
-const dbURL = "mongodb+srv://B2Original:xjACWmTGS4jYVnWV@defaultcluster.z4skv.mongodb.net/InsInvDB?retryWrites=true&w=majority";
-
-seeder.connect(dbURL, function() {
-    //const db = "mongodb://localhost:27017/inventario" // this is just example
-    
-    /*seeder.connect(db, function () {*/ 
-    seeder.loadModels( [
-        "./src/models/Category.js","./src/models/Company.js", "./src/models/Condition.js","./src/models/Contact.js","./src/models/Contract.js", "./src/models/Item.js", "./src/models/Location.js", "./src/models/Room.js", "./src/models/SubCategory.js"
-    ]);
-    seeder.clearModels( ["Category", "Company", "Condition", "Contact", "Contract", "Item", "Location", "Room", "SubCategory"]);
-    seeder.populateModels(seedCategory(),seedCompany(),seedCondition(),seedContact(),seedContract(),seedItem(),seedLocation(),seedRoom(),seedSubCategory(), function (err, done) {
-        if (err) {
-            return console.log("seed err", err)
-        }
-        if (done) {
-            return console.log("seed done", done);
-        }
-        seeder.disconnect()
-    })
-    });
-    
 
 //********************************************************************************************************************************* */
 
@@ -312,10 +270,10 @@ const seedItem = async () => {
                     name: faker.name.title(),
 					description: faker.lorem.paragraph(),
 					pictures: faker.internet.avatar(),
-					location: randomLocation._id(),       
-					room: randomRoom._id(),
-					category: randomCategory._id(),
-                    condition: randomCondition._id(),
+					location: randomLocation._id,       
+					room: randomRoom._id,
+					category: randomCategory._id,
+                    condition: randomCondition._id,
                     estimatedValue: faker.commerce.price(),
 					model: faker.name.title(),
 					brand: faker.name.title(),
@@ -450,7 +408,12 @@ const seedSubCategory = async () => {
 }
 
     // Databse Seeds
-    // seedCategory();
-    // seedCompany();
-    // seedCondition();
-    // seedContact();
+    seedSubCategory();
+    seedCategory();
+    seedCompany();
+    seedCondition();
+    seedContact();
+    seedContract();
+    seedLocation();
+    seedRoom();
+    seedItem();

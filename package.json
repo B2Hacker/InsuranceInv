@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "seed": "node seed.js",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "seed": "node -r esm utils/seed.js"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "axios": "^0.20.0",
+    "esm": "^3.2.25",
     "faker": "^5.1.0",
     "loadash": "^1.0.0",
     "lodash.sample": "^4.2.1",

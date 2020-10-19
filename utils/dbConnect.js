@@ -15,7 +15,7 @@ async function dbConnect() {
         return;
     }
 
-    const db = await mongoose.connect(process.env.MONGO_URI, {
+    const db = await mongoose.connect("mongodb+srv://B2Original:xjACWmTGS4jYVnWV@defaultcluster.z4skv.mongodb.net/InsInvDB?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
