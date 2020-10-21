@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM, { render } from "react-dom";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -33,7 +34,7 @@ export default function NavBar(props) {
 
             <div className={classes.rootAppBar}>
                 <Navbar fixed="top" expanded={expanded} collapseOnSelect expand="md" bg="dark" variant="dark" className="pl-2 pr-2">
-                    <Navbar.Brand href="/">myInventory</Navbar.Brand>
+                    <Navbar.Brand href="/">Inurance Info</Navbar.Brand>
                     <>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setExpanded(expanded ? false : true)} />
                         <Navbar.Collapse id="responsive-navbar-nav">

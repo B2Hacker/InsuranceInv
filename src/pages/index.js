@@ -7,11 +7,11 @@ export default function Home(props) {
 
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    Welcome to MyInventory!!
+                    Insurance Info
         </h1>
 
                 <p className={styles.description}>
-                    Get started by adding a new item
+                    Website to check on Insurance Info
         </p>
 
             </main>
