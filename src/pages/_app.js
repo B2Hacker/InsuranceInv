@@ -4,6 +4,7 @@ import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Head from "next/head";
 import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
 import PropTypes from "prop-types";
 import React from "react";
 import theme from "../../utils/theme";
@@ -36,11 +37,13 @@ export default function MyApp(props) {
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <NavBar {...pageProps} />
+        <Footer {...pageProps} />
         <Container fixed className={classes.rootContainer}>
           <Component {...pageProps} />
         </Container>
