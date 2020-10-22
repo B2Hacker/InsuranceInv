@@ -15,11 +15,6 @@ export default function Home(props) {
         </p>
 
             </main>
-
-            <footer className={styles.footer}>
-                Powered by{" "}
-                <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-            </footer>
         </div>
     )
 };

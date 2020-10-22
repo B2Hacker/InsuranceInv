@@ -1,61 +1,47 @@
-import { makeStyles } from "@material-ui/core/styles";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Nav from "react-bootstrap/Nav";
 
-const useStyles = makeStyles((theme) => ({
-    rootAppBar: {
-        flexGrow: 1,
-    },
-}));
-
-export default function NavBar(props) {
-    const classes = useStyles();
-
-
-    const [expanded, setExpanded] = React.useState(false);
-    const [menuExpanded, setMenuExpanded] = React.useState(false);
-
-    const toggleMenuExpanded = () => {
-        if (expanded) {
-            setMenuExpanded(true)
-            return;
-        }
-        const currentState = menuExpanded;
-        setMenuExpanded(!currentState);
-    };
-
+export default function NavBar() {
     return (
-        <>
-            <div className={classes.rootAppBar}>
-                <Navbar collapseOnSelect expanded={expanded} expand="md" bg="dark" variant="dark">
-                    <Navbar.Brand href="/">
-                    <i class="fas fa-address-card"></i>
-                    {' '}
-                    Insurance Info
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setExpanded(expanded ? false : true)} />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="mr-auto" onClick={toggleMenuExpanded}>
-                            <Nav.Link href="/items">Items</Nav.Link>
-                            <NavDropdown title="Configuration" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="/categories">Categories</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="/conditions">Conditions</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="/companies">Companies</NavDropdown.Item>
-                                <NavDropdown.Item href="/contacts">Contacts</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="/contracts">Contracts</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="/locations">Locations</NavDropdown.Item>
-                                <NavDropdown.Item href="/rooms">Rooms</NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+            <a className="navbar-brand" href="/">
+                <i class="far fa-address-card"></i>
+                {' '}
+                Insurance Info
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/items">
+                            Items
+                            {' '}
+                            <i class="fas fa-box-open"></i>
+                            </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Configuration
+                            {' '}
+                            <i class="fas fa-cogs"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/categories">Categories</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/conditions">Conditions</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/companies">Companies</a>
+                            <a class="dropdown-item" href="/contacts">Contacts</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/contracts">Contracts</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/locations">Locations</a>
+                            <a class="dropdown-item" href="/rooms">Rooms</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </>
+        </nav>
     );
 }
