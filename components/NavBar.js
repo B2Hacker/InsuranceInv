@@ -1,5 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 export default function NavBar() {
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-success">
@@ -13,11 +11,11 @@ export default function NavBar() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <div className="navbar-nav text-center">
-                        <a className="nav-item nav-link active" href="/items">
-                            Items
-                            &nbsp;
+                    <a className="nav-item nav-link active" href="/items">
+                        Items
+                        &nbsp;
                             <i className="fas fa-box-open"></i>
-                            </a>
+                    </a>
                     <div className="nav-item dropdown">
                         <a className="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             Configuration
