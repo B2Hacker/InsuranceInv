@@ -1,5 +1,9 @@
+import styles from "../../styles/Home.module.css"
+
 export default function itemsPage() {
     return (
-        <h1>Items goes here!</h1>
+        <div className={styles.container}>
+            <h1>Items goes here!</h1>
+        </div>
     );
 };
