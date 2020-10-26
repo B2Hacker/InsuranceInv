@@ -4,7 +4,27 @@ import { viewAllCategories } from "../../src/lib/apiCategory";
 export default function categoriesPage() {
 
     const [allCategories, setAllCategories] = React.useState([]);
+    const [isShown, setIsShown] = React.useState(false);
 
+    const showModal = () => {
+        setIsShown(true);
+    };
+
+    const closeModal = () => {
+        setIsShown(false);
+    };
+
+
+    React.useEffect(() => {
+        if (!sessionStorage.popupModal) {
+            const timer = setTimeout(() => {
+                setIsShown(true);
+                sessionStorage.popupModal = 1;
+            }, 2000);
+
+            return () => clearTimeout(timer);
+        }
+    }, []);
 
 
     React.useEffect(() => {
@@ -38,7 +58,7 @@ export default function categoriesPage() {
                                 <td>{category.description}</td>
                                 <td>{Object.keys(category.subCategories).length}</td>
                                 <td>
-                                    <button className="btn btn-primary " data-toggle="modal" data-target="editModal">Edit</button>
+                                    <button className="btn btn-primary " data-toggle="modal" data-target="channelModal">Edit</button>
                                     &nbsp;
                                     <button className="btn btn-danger">Delete</button>
                                 </td>
@@ -50,21 +70,51 @@ export default function categoriesPage() {
 
             {/* Modal Edit */}
 
-            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div className="modal" id="channelModal">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title text-light">Free Measure. Free Quote.</h5>
+
+                            <button
+                                onClick={closeModal}
+                                style={{ color: '#fff' }}
+                                type="button"
+                                className="close"
+                                data-dismiss="modal"
+                                aria-label="Close"
+                            >
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            
+
+                        <div className="modal-body">
+                            <div className="row">
+                                <div className="col-6">
+                                    <img src="image.jpg" alt="react-hooks" />
+                                </div>
+
+                                <div className="col-6">
+                                    <p className="lead text-light">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae cumque, assumenda cupiditate
+                                        incidunt reiciendis earum
+                </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+
+                        <div className="modal-footer">
+                            <button className="btn-lg btn btn-primary">
+                                <span style={{ color: '#fff' }}>
+                                    <i className="fa fa-phone mr-1 " />
+                                    <a href="tel:01234567" style={{ color: '#fff' }}>
+                                        0123 4567{' '}
+                                    </a>
+                                </span>
+                            </button>
+                            <button onClick={closeModal} type="button" className="btn btn-lg">
+                                No Thanks
+            </button>
                         </div>
                     </div>
                 </div>
