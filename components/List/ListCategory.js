@@ -25,7 +25,7 @@ export default function CategoriesList(props) {
                                 <td>{category.description}</td>
                                 <td>{Object.keys(category.subCategories).length}</td>
                                 <td>
-                                    <button className="btn btn-primary " data-toggle="modal" data-target="editModal">Edit</button>
+                                    <button className="btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">Edit</button>
                                     &nbsp;
                                     <button className="btn btn-danger">Delete</button>
                                 </td>
