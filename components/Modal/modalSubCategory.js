@@ -1,18 +1,19 @@
 import styles from '../../styles/Home.module.css';
 
-const ModalCategory = props => {
+
+const ModalSubCategory = props => {
 
     return (
 
         <>
             <div className={styles.main}>
-                <h2>Categories</h2>
-                <button type="button" className="btn btn-success" data-toggle="modal" data-target="#modalCategoryCreate">New Category</button>
+                <h2>SubCategories</h2>
+                <button type="button" className="btn btn-success" data-toggle="modal" data-target="#modalSubCategoryCreate">New SubCategory</button>
             </div>
             <br />
 
             { /* Modal edit */}
-            <div className="modal fade" id="modalCategoryEdit" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal fade" id="modalSubCategoryEdit" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -73,7 +74,7 @@ const ModalCategory = props => {
             </div>
 
             { /* Modal create */}
-                <div className="modal fade" id="modalCategoryCreate" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div className="modal fade" id="modalSubCategoryCreate" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -132,4 +133,4 @@ const ModalCategory = props => {
     )
 };
 
-export default ModalCategory;
+export default ModalSubCategory;

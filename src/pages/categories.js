@@ -3,7 +3,8 @@ import { viewAllCategories, createCategory, updateCategory } from "../../src/lib
 import { viewAllSubCategories, createSubCategory, updateSubCategory } from "../../src/lib/apiSubCategory";
 import ListCategory from '../../components/List/ListCategory';
 import ListSubCategory from '../../components/List/ListSubCategory';
-import ModalAddCategory from '../../components/Modal/modalCategory';
+import ModalCategory from '../../components/Modal/modalCategory';
+import ModalSubCategory from '../../components/Modal/modalSubCategory';
 
 export default function categoriesPage() {
 
@@ -30,12 +31,14 @@ export default function categoriesPage() {
 
     return allCategories ? (
         <>
-            <ModalAddCategory />
+            <ModalCategory />
 
             <div item="true" xs={12}></div>
             <ListCategory
                 allCategories={allCategories}
             />
+
+            <ModalSubCategory />
 
             <div item="true" xs={12}></div>
             <ListSubCategory
