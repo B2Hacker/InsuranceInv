@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from '../../styles/Home.module.css';
 
-export default function ListCategory(props) {
+export default function CategoriesList(props) {
 
-    const { allCategories } = props;
+    const { allSubCategories } = props;
 
-    return allCategories && allCategories.length > 0 ? (
+    return allSubCategories && allSubCategories.length > 0 ? (
         <>
             <div className={styles.container}>
                 <table className="table table-bordered">
@@ -13,16 +13,14 @@ export default function ListCategory(props) {
                         <tr>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>SubCategory</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {allCategories.map(category => (
-                            <tr key={category._id}>
-                                <td>{category.name}</td>
-                                <td>{category.description}</td>
-                                <td>{Object.keys(category.subCategories).length}</td>
+                        {allSubCategories.map(subCategory => (
+                            <tr key={subCategory._id}>
+                                <td>{subCategory.name}</td>
+                                <td>{subCategory.description}</td>
                                 <td>
                                     <button className="btn btn-primary " data-toggle="modal" data-target="#staticBackdrop">Edit</button>
                                     &nbsp;
