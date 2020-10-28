@@ -32,15 +32,13 @@ export default function categoriesPage() {
     return allCategories ? (
         <>
             <ModalCategory />
-
-            <div item="true" xs={12}></div>
+            
             <ListCategory
                 allCategories={allCategories}
             />
 
             <ModalSubCategory />
 
-            <div item="true" xs={12}></div>
             <ListSubCategory
                 allSubCategories={allSubCategories}
             />
