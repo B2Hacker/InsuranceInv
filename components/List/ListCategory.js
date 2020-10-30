@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from '../../styles/Home.module.css';
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 export default function ListCategory(props) {
 
@@ -27,7 +26,7 @@ export default function ListCategory(props) {
                                 <td>
                                     <button className="btn btn-primary " data-toggle="modal" data-target="#modalCategoryEdit">Edit</button>
                                     &nbsp;
-                                    <button className="btn btn-danger">Delete</button>
+                                    <button className="btn btn-danger" data-toggle="modal" data-target="#modalCategoryDelete">Delete</button>
                                 </td>
                             </tr>
                         ))}
