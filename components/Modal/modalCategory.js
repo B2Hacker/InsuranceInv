@@ -38,7 +38,7 @@ const ModalCategory = props => {
                                         className="form-control"
                                         type="text"
                                         name="name"
-                                        placeholder="Insert category" />
+                                        placeholder="Insert Category name" />
                                     <br />
 
                                     <label>Description</label>
@@ -46,14 +46,22 @@ const ModalCategory = props => {
                                         className="form-control"
                                         type="text"
                                         name="description"
-                                        placeholder="Insert description" />
+                                        placeholder="Insert a description about the category" />
+                                    <br />
+
+                                    <label>New Image</label>
+                                    <input
+                                        className="form-control"
+                                        type="file"
+                                        name="pictures"
+                                        placeholder="Insert a new Picture" />
                                     <br />
 
                                     <label>SubCategory</label>
                                     <input
                                         className="form-control"
                                         name="subCategories"
-                                        placeholder="Insert subCategory" />
+                                        placeholder="Select a subCategory" />
                                     <br />&nbsp;
 
                                     </div>
@@ -130,27 +138,27 @@ const ModalCategory = props => {
             </div>
 
             { /* Modal delete */}
-                <div className="modal fade" id="modalCategoryDelete" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h2>Delete Category</h2>
-                                <button type="button" className="btn btn-danger" data-dismiss="modal" aria-label="Close">
-                                    &times;
+            <div className="modal fade" id="modalCategoryDelete" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h2>Delete Category</h2>
+                            <button type="button" className="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                                &times;
                             </button>
-                            </div>
-                            <div className="modal-body">
+                        </div>
+                        <div className="modal-body">
 
                             Are you sure you want to delete this category?
 
                             </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">NO</button>
-                                <button type="button" className="btn btn-success">YES</button>
-                            </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">NO</button>
+                            <button type="button" className="btn btn-success">YES</button>
                         </div>
                     </div>
                 </div>
+            </div>
         </>
     )
 };
