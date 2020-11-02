@@ -2,6 +2,8 @@ import styles from '../../styles/Home.module.css';
 
 const ModalCategory = props => {
 
+    const {handleChange, createCategory, newCategory } = props;
+
     return (
 
         <>
@@ -38,7 +40,10 @@ const ModalCategory = props => {
                                         className="form-control"
                                         type="text"
                                         name="name"
-                                        placeholder="Insert Category name" />
+                                        placeholder="Insert Category name"
+                                        value={newCategory.name}
+                                        onChange={handleChange("name")}
+                                    />
                                     <br />
 
                                     <label>Description</label>
@@ -46,7 +51,10 @@ const ModalCategory = props => {
                                         className="form-control"
                                         type="text"
                                         name="description"
-                                        placeholder="Insert a description about the category" />
+                                        placeholder="Insert a description about the category"
+                                        value={newCategory.description}
+                                        onChange={handleChange("description")}
+                                    />
                                     <br />
 
                                     <label>New Image</label>
@@ -54,7 +62,9 @@ const ModalCategory = props => {
                                         className="form-control"
                                         type="file"
                                         name="pictures"
-                                        placeholder="Insert a new Picture" />
+                                        placeholder="Insert a new Picture"
+                                        value={newCategory.pictures}
+                                        onchange={handleChange("pictures")} />
                                     <br />
 
                                     <label>SubCategory</label>
@@ -70,7 +80,7 @@ const ModalCategory = props => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" className="btn btn-success">Add</button>
+                            <button type="button" className="btn btn-success" onClick={createCategory}>Add</button>
                         </div>
                     </div>
                 </div>

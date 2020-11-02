@@ -10,6 +10,8 @@ export default function categoriesPage() {
 
     const [allCategories, setAllCategories] = React.useState([]);
     const [allSubCategories, setAllSubCategories] = React.useState([]);
+    const [newCategory, setNewCategory] = React.useState({});
+    const [openModalCategory, setOpenModalCategory] = React.useState(false);
 
 
     React.useEffect(() => {
@@ -29,10 +31,40 @@ export default function categoriesPage() {
         });
     }
 
+    const handleChange = name => event => {
+        setNewCategory({
+            ...newCategory,
+            [name]: event.target.value
+        });
+    };
+
+    const handleCloseModal = () => {
+        setOpenModalCategory(false);
+    };
+
+    const handleClickOnCreateNewCategory = () => {
+        createCategory(newCategory).then(() => {
+            setOpenModalCategory(false);
+            getCategories();
+        })
+    }
+
+    const handleClickOnCancelNewCategory = () => {
+        setNewCategory({})
+
+    };
+
     return allCategories ? (
         <>
-            <ModalCategory />
-            
+            <ModalCategory
+                open={openModalCategory}
+                handleClose={handleCloseModal}
+                handleChange={handleChange}
+                createCategory={handleClickOnCreateNewCategory}
+                cancelCreateCategory={handleClickOnCancelNewCategory}
+                newCategory={newCategory}
+            />
+
             <ListCategory
                 allCategories={allCategories}
             />
