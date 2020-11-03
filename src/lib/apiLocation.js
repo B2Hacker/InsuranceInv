@@ -20,7 +20,7 @@ export const updateLocation = async locationData => {
     return data.data;
 }
 
-export const deletedLocation = async id => {
+export const deleteLocation = async id => {
     const { data } = await axios.delete(`/api/locations/${id}`);
     return data.data;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { viewAllCategories, createCategory, updateCategory } from "../../src/lib/apiCategory";
 import { viewAllSubCategories, createSubCategory, updateSubCategory } from "../../src/lib/apiSubCategory";
 import ListCategory from '../../components/List/ListCategory';
