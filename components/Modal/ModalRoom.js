@@ -1,27 +1,27 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import AddLocation from "../Input/inputNewLocation";
+import AddRoom from "../Input/inputNewRoom";
 
 const useStyles = makeStyles(theme => ({
 
 }));
 
-const ModalLocation = props => {
+const ModalRoom = props => {
     const classes = useStyles();
-    const { handleClose, open, allLocations, newLocation, editMode, handleChange, handleClickUpdateLocation, createLocation, handleClickOnCreateNewLocation, cancelCreateNewLocation } = props;
+    const { handleClose, open, allRooms, newRoom, editMode, handleChange, handleClickUpdateRoom, createRoom, handleClickOnCreateNewRoom, cancelCreateNewRoom } = props;
 
     return (
 
         <Modal show={open} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>{editMode ? `Modifying ${newLocation.name}` : `Add a new location`}</Modal.Title>
+                <Modal.Title>{editMode ? `Modifying ${newRoom.name}` : `Add a new room`}</Modal.Title>
 
             </Modal.Header>
 
             <Modal.Body>
-                <AddLocation
-                    newLocation={newLocation}
+                <AddRoom
+                    newRoom={newRoom}
                     handleChange={handleChange}
                 />
 
@@ -32,15 +32,15 @@ const ModalLocation = props => {
                     Cancel
                 </Button>
 
-                <Button variant="primary" onClick={createLocation}>
+                <Button variant="primary" onClick={createRoom}>
                     {editMode ? <button
                         variant="success" size="sm"
-                        onClick={() => handleClickUpdateLocation()}
+                        onClick={() => handleClickUpdateRoom()}
                     >
                         UPDATE
         </button>
                         :
-                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewLocation()}><i className="fa fa-database">
+                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewRoom()}><i className="fa fa-database">
                         </i> &nbsp; Save</button>}
                 </Button>
 
@@ -52,8 +52,8 @@ const ModalLocation = props => {
     )
 };
 
-ModalLocation.defaultProps = {
+ModalRoom.defaultProps = {
     editMode: true
 };
 
-export default ModalLocation;
+export default ModalRoom;

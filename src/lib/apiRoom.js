@@ -20,7 +20,7 @@ export const updateRoom = async roomData => {
     return data.data;
 }
 
-export const deletedRoom = async id => {
+export const deleteRoom = async id => {
     const { data } = await axios.delete(`/api/rooms/${id}`);
     return data.data;
 }

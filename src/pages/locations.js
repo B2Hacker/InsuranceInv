@@ -113,7 +113,7 @@ export default function locationsPage() {
                 <div className={styles.main}>
                     {showElements ?
                         <button
-                            variant="success" size="sm"
+                            className="btn btn-success"
                             onClick={() => handleClickAddLocation()}
                         >
                             <AddIcon fontSize="small" />Add new location</button>

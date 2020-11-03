@@ -1,5 +1,3 @@
-
-
 export default function AddLocation(props) {
     const { newLocation, handleChange, cancelCreateNewLocation, createNewLocation } = props
 
