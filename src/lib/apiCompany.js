@@ -20,7 +20,7 @@ export const updateCompany = async companyData => {
     return data.data;
 }
 
-export const deletedCompany = async id => {
+export const deleteCompany = async id => {
     const { data } = await axios.delete(`/api/companies/${id}`);
     return data.data;
 }
