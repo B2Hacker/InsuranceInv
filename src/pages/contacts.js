@@ -4,7 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalContact from '../../components/Modal/ModalContact';
 
-export default function ContactsPage() {
+export default function contactsPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);

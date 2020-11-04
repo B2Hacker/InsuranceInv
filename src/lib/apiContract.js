@@ -20,7 +20,7 @@ export const updateContract = async contractData => {
     return data.data;
 }
 
-export const deletedContract = async id => {
+export const deleteContract = async id => {
     const { data } = await axios.delete(`/api/contracts/${id}`);
     return data.data;
 }
