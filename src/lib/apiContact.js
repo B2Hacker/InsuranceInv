@@ -20,7 +20,7 @@ export const updateContact = async contactData => {
     return data.data;
 }
 
-export const deletedContact = async id => {
+export const deleteContact = async id => {
     const { data } = await axios.delete(`/api/contacts/${id}`);
     return data.data;
 }
