@@ -20,7 +20,7 @@ export const updateSubCategory = async subCategoryData => {
     return data.data;
 }
 
-export const deletedSubCategory = async id => {
+export const deleteSubCategory = async id => {
     const { data } = await axios.delete(`/api/subCategories/${id}`);
     return data.data;
 }

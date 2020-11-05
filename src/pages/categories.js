@@ -1,19 +1,32 @@
 import { viewAllCategories, viewCategory, createCategory, updateCategory, deleteCategory } from "../../src/lib/apiCategory";
+import { viewAllSubCategories, viewSubCategory, createSubCategory, updateSubCategory, deleteSubCategory } from "../../src/lib/apiSubCategory";
 import ListCategory from "../../components/List/ListCategory";
+import ListSubCategory from "../../components/List/ListSubCategory";
 import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalCategory from "../../components/Modal/ModalCategory";
+import ModalSubCategory from "../../components/Modal/ModalSubCategory";
 
 export default function categoriesPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
-    const [editMode, setEditMode] = React.useState(false);
     const [allCategoriesState, setAllCategoriesState] = React.useState([]);
     const [newCategory, setNewCategory] = React.useState({});
 
+    const [showElementsSubCategory, setShowElementsSubCategory] = React.useState(true);
+    const [showModalSubCategory, setShowModalSubCategory] = React.useState(false);
+    const [allSubCategoriesState, setAllSubCategoriesState] = React.useState([]);
+    const [newSubCategory, setNewSubCategory] = React.useState({});
 
-    React.useEffect(() => getCategories(), []);
+    const [editMode, setEditMode] = React.useState(false);
+
+    React.useEffect(() => {
+        getCategories();
+        getSubCategories();
+    }, []);
+
+    // CATEGORIES    
 
     const getCategories = () => {
         viewAllCategories().then(allCategories => {
@@ -93,6 +106,87 @@ export default function categoriesPage() {
         setShowElements(true);
     };
 
+    //SUBCATEGORIES
+
+    const getSubCategories = () => {
+        viewAllSubCategories().then(allSubCategories => {
+            setAllSubCategoriesState(allSubCategories);
+        })
+    };
+
+    const handleCloseModalSubCategory = () => {
+        console.log("handleCloseModalSC")
+        setShowModalSubCategory(false);
+        setNewSubCategory({});
+    };
+
+    const handleClickAddSubCategory = () => {
+        console.log("handleClickAddSubCategory")
+        setShowModalSubCategory(true);
+        setEditMode(false);
+        setNewSubCategory({});
+    }
+
+    const handleClickUpdateSubCategory = () => {
+        updateSubCategory(newSubCategory).then(() => {
+            handleCloseModalSubCategory()
+            getSubCategories();
+        })
+    }
+
+    const handleChangeSubCategory = path => name => event => {
+        if (path) {
+            setNewSubCategory({
+                ...newSubCategory,
+                [path]: {
+                    ...newSubCategory[path],
+                    [name]: event.target.value
+                }
+            });
+        } else {
+            setNewSubCategory({
+                ...newSubCategory,
+                [name]: event.target.value
+            });
+        }
+        console.log(newSubCategory);
+    };
+
+    const handleClickOnCreateNewSubCategory = () => {
+
+        createSubCategory(newSubCategory).then(subcategory => {
+            getSubCategories();
+            setNewSubCategory({})
+            setShowElementsSubCategory(true);
+        })
+
+    };
+
+    const handleClickOnCancelNewSubCategory = () => {
+        setNewSubCategory({})
+        setShowElementsSubCategory(true);
+    };
+
+    const handleClickEditSubCategory = subcategoryID => {
+        viewSubCategory(subcategoryID).then(subcategory => {
+            console.log("FOUND IT", subcategory);
+            setShowModalSubCategory(true);
+            setEditMode(true);
+            setNewSubCategory(subcategory);
+        })
+    };
+
+    const handleClickDeleteSubCategory = subcategoryID => {
+        const borrandoSubCategory = allSubCategoriesState.filter((subcategory) => subcategory.subcategoryID !== subcategoryID);
+        console.log("DELETING", subcategoryID);
+        setAllSubCategoriesState(borrandoSubCategory)
+
+        deleteSubCategory(subcategoryID);
+        setNewSubCategory(true);
+        setShowElementsSubCategory(true);
+    };
+
+
     return (
         <div >
             <ModalCategory
@@ -103,6 +197,17 @@ export default function categoriesPage() {
                 handleClickUpdateCategory={handleClickUpdateCategory}
                 handleClickOnCreateNewCategory={handleClickOnCreateNewCategory}
                 newCategory={newCategory}
+                editMode={editMode}
+            />
+
+            <ModalSubCategory
+                open={showModalSubCategory}
+                handleClose={handleCloseModalSubCategory}
+                allCategories={allSubCategoriesState}
+                handleChange={handleChangeSubCategory}
+                handleClickUpdateSubCategory={handleClickUpdateSubCategory}
+                handleClickOnCreateNewSubCategory={handleClickOnCreateNewSubCategory}
+                newSubCategory={newSubCategory}
                 editMode={editMode}
             />
             <div >
@@ -127,6 +232,30 @@ export default function categoriesPage() {
                         allCategories={allCategoriesState}
                         handleClickEditCategory={handleClickEditCategory}
                         Borrar={handleClickDeleteCategory}
+                    />
+                </div>
+
+                <div className={styles.main}>
+                    <h3>SubCategories</h3>
+                </div>
+
+                <div className={styles.main}>
+                    {showElementsSubCategory ?
+                        <button
+                            className="btn btn-success"
+                            onClick={() => handleClickAddSubCategory()}
+                        >
+                            <AddIcon fontSize="small" />Add new SubCategory</button>
+                        :
+                        null
+                    }
+                </div>
+
+                <div >
+                    <ListSubCategory
+                        allSubCategories={allSubCategoriesState}
+                        handleClickEditSubCategory={handleClickEditSubCategory}
+                        Borrar={handleClickDeleteSubCategory}
                     />
                 </div>
             </div>
