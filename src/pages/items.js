@@ -1,9 +1,135 @@
-import styles from "../../styles/Home.module.css"
+import { viewAllItems, viewItem, createItem, updateItem, deleteItem } from "../../src/lib/apiItem";
+import ListItem from "../../components/List/ListItem";
+import AddIcon from "@material-ui/icons/Add";
+import styles from '../../styles/Home.module.css';
+import ModalItem from '../../components/Modal/ModalItem';
 
-export default function itemsPage() {
+export default function ItemsPage() {
+
+    const [showElements, setShowElements] = React.useState(true);
+    const [showModal, setShowModal] = React.useState(false);
+    const [editMode, setEditMode] = React.useState(false);
+    const [allItemsState, setAllItemsState] = React.useState([]);
+    const [newItem, setNewItem] = React.useState({});
+
+
+    React.useEffect(() => getItems(), []);
+
+    const getItems = () => {
+        viewAllItems().then(allItems => {
+            setAllItemsState(allItems);
+        })
+    };
+
+    const handleCloseModal = () => {
+        console.log("handleCloseModal")
+        setShowModal(false);
+        setNewItem({});
+    };
+
+    const handleClickAddItem = () => {
+        console.log("handleClickAddItem")
+        setShowModal(true);
+        setEditMode(false);
+        setNewItem({});
+    }
+
+    const handleClickUpdateItem = () => {
+        updateItem(newItem).then(() => {
+            handleCloseModal()
+            getItems();
+        })
+    }
+
+    const handleChange = path => name => event => {
+        if (path) {
+            setNewItem({
+                ...newItem,
+                [path]: {
+                    ...newItem[path],
+                    [name]: event.target.value
+                }
+            });
+        } else {
+            setNewItem({
+                ...newItem,
+                [name]: event.target.value
+            });
+        }
+        console.log(newItem);
+    };
+
+    const handleClickOnCreateNewItem = () => {
+
+        createItem(newItem).then(item => {
+            getItems();
+            setNewItem({})
+            setShowElements(true);
+        })
+
+    };
+
+    const handleClickOnCancelNewItem = () => {
+        setNewItem({})
+        setShowElements(true);
+    };
+
+    const handleClickEditItem = itemID => {
+        viewItem(itemID).then(item => {
+            console.log("FOUND IT", item);
+            setShowModal(true);
+            setEditMode(true);
+            setNewItem(item);
+        })
+    };
+
+    const handleClickDeleteItem = itemID => {
+        const borrandoItem = allItemsState.filter((item) => item.itemID !== itemID);
+        console.log("DELETING", itemID);
+        setAllItemsState(borrandoitem)
+
+        deleteItem(itemID);
+        setNewItem(true);
+        setShowElements(true);
+    };
+
     return (
-        <div className={styles.container}>
-            <h1>Items goes here!</h1>
+        <div >
+            <ModalItem
+                open={showModal}
+                handleClose={handleCloseModal}
+                allItems={allItemsState}
+                handleChange={handleChange}
+                handleClickUpdateItem={handleClickUpdateItem}
+                handleClickOnCreateNewItem={handleClickOnCreateNewItem}
+                newItem={newItem}
+                editMode={editMode}
+            />
+            <div >
+                <div className={styles.main}>
+                    <h3>Items</h3>
+                </div>
+
+                <div className={styles.main}>
+                    {showElements ?
+                        <button
+                            className="btn btn-success"
+                            onClick={() => handleClickAddItem()}
+                        >
+                            <AddIcon fontSize="small" />Add new Item</button>
+                        :
+                        null
+                    }
+                </div>
+
+                <div >
+                    <ListItem
+                        allItems={allItemsState}
+                        handleClickEditItem={handleClickEditItem}
+                        Borrar={handleClickDeleteItem}
+                    />
+                </div>
+            </div>
         </div>
     );
 };
