@@ -32,8 +32,8 @@ const ModalCompany = props => {
                     Cancel
                 </Button>
 
-                <Button variant="primary" onClick={createCompany}>
-                    {editMode ? <button
+                <div variant="primary" onClick={createCompany}>
+                    {editMode ? <button className="btn btn-success"
                         variant="success" size="sm"
                         onClick={() => handleClickUpdateCompany()}
                     >
@@ -42,13 +42,12 @@ const ModalCompany = props => {
                         :
                         <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewCompany()}><i className="fa fa-database">
                         </i> &nbsp; Save</button>}
-                </Button>
-
-
-
+                </div>
             </Modal.Footer>
 
         </Modal>
+
+        
     )
 };
 

@@ -58,6 +58,7 @@ export const seedCategory = async () => {
                 new Category({
                     name: faker.name.findName(),
                     description: faker.lorem.paragraph(),
+                    pictures: faker.image.image(),
                     subCategories: [_.sample(allSubCategories)],
                 })
             )

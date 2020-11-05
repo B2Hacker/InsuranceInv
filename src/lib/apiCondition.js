@@ -20,7 +20,7 @@ export const updateCondition = async conditionData => {
     return data.data;
 }
 
-export const deletedCondition = async id => {
+export const deleteCondition = async id => {
     const { data } = await axios.delete(`/api/conditions/${id}`);
     return data.data;
 }

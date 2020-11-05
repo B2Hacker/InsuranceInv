@@ -1,27 +1,27 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import AddCategory from "../Input/inputNewCategory";
+import AddCondition from "../Input/inputNewCondition";
 
 const useStyles = makeStyles(theme => ({
 
 }));
 
-const ModalCategory = props => {
+const ModalCondition = props => {
     const classes = useStyles();
-    const { handleClose, open, allCategories, newCategory, editMode, handleChange, handleClickUpdateCategory, createCategory, handleClickOnCreateNewCategory, cancelCreateNewCategory } = props;
+    const { handleClose, open, allConditions, newCondition, editMode, handleChange, handleClickUpdateCondition, createCondition, handleClickOnCreateNewCondition, cancelCreateNewCondition } = props;
 
     return (
 
         <Modal show={open} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>{editMode ? `Modifying ${newCategory.name}` : `Add a new Category`}</Modal.Title>
+                <Modal.Title>{editMode ? `Modifying ${newCondition.name}` : `Add a new Condition`}</Modal.Title>
 
             </Modal.Header>
 
             <Modal.Body>
-                <AddCategory
-                    newCategory={newCategory}
+                <AddCondition
+                    newCondition={newCondition}
                     handleChange={handleChange}
                 />
 
@@ -32,15 +32,15 @@ const ModalCategory = props => {
                     Cancel
                 </Button>
 
-                <Button variant="primary" onClick={createCategory}>
+                <Button variant="primary" onClick={createCondition}>
                     {editMode ? <button
                         variant="success" size="sm"
-                        onClick={() => handleClickUpdateCategory()}
+                        onClick={() => handleClickUpdateCondition()}
                     >
                         UPDATE
         </button>
                         :
-                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewCategory()}><i className="fa fa-database">
+                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewCondition()}><i className="fa fa-database">
                         </i> &nbsp; Save</button>}
                 </Button>
 
@@ -52,8 +52,8 @@ const ModalCategory = props => {
     )
 };
 
-ModalCategory.defaultProps = {
+ModalCondition.defaultProps = {
     editMode: true
 };
 
-export default ModalCategory;
+export default ModalCondition;

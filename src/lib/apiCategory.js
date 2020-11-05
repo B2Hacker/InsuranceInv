@@ -20,7 +20,7 @@ export const updateCategory = async categoryData => {
     return data.data;
 }
 
-export const deletedCategory = async id => {
+export const deleteCategory = async id => {
     const { data } = await axios.delete(`/api/categories/${id}`);
     return data.data;
 }

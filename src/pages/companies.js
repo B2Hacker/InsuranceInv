@@ -87,7 +87,6 @@ export default function companiesPage() {
         const borrandoCompany = allCompaniesState.filter((company) => company.companyID !== companyID);
         console.log("DELETING", companyID);
         setAllCompaniesState(borrandoCompany)
-
         deleteCompany(companyID);
         setNewCompany(true);
         setShowElements(true);

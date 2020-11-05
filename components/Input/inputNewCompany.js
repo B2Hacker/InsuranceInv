@@ -102,7 +102,7 @@ export default function AddCompany(props) {
 
 
             <div >
-                <label>Street number</label>
+                <label>Street #</label>
                 <input
                     size="small"
                     type="number"

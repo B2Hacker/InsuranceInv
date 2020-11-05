@@ -1,11 +1,12 @@
 import styles from '../../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
 
-export default function ListSubCategory(props) {
 
-    const { allSubCategories, handleClickEditSubCategory, Borrar } = props;
+export default function ListCondition(props) {
 
-    return allSubCategories && allSubCategories.length > 0 ? (
+    const { allConditions, handleClickEditCondition, Borrar } = props;
+
+    return allConditions && allConditions.length > 0 ? (
         <>
 
             <div className={styles.container}>
@@ -18,13 +19,13 @@ export default function ListSubCategory(props) {
                         </tr>
                     </thead>
                     <tbody>
-                        {allSubCategories.map(subCategory => (
-                            <tr key={subCategory._id}>
-                                <td>{subCategory.name}</td>
-                                <td>{subCategory.description}</td>
+                        {allConditions.map(condition => (
+                            <tr key={condition._id}>
+                                <td>{condition.name}</td>
+                                <td>{condition.description}</td>
                                 <td>
-                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditSubCategory(subCategory._id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => Borrar(subCategory._id)}>Delete</button>
+                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditCondition(condition._id)}>Edit</button>
+                                    <button className="btn btn-danger" onClick={() => Borrar(condition._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
