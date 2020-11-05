@@ -2,9 +2,9 @@ import { viewAllCategories, viewCategory, createCategory, updateCategory, delete
 import ListCategory from "../../components/List/ListCategory";
 import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
-import ModalCategory from '../../components/Modal/ModalCategory';
+import ModalCategory from "../../components/Modal/ModalCategory";
 
-export default function CategoriesPage() {
+export default function categoriesPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
