@@ -1,4 +1,10 @@
 import { viewAllItems, viewItem, createItem, updateItem, deleteItem } from "../../src/lib/apiItem";
+import { viewAllLocations, viewLocation } from "../../src/lib/apiLocation";
+import { viewAllRooms, viewRoom } from "../../src/lib/apiRoom";
+import { viewAllCategories, viewCategory } from "../../src/lib/apiCategory";
+import { viewAllConditions, viewCondition } from "../../src/lib/apiCondition";
+import { viewAllCompanies, viewCompany } from "../../src/lib/apiCompany";
+import { viewAllContracts, viewContract } from "../../src/lib/apiContract";
 import ListItem from "../../components/List/ListItem";
 import styles from '../../styles/Home.module.css';
 import ModalItem from '../../components/Modal/ModalItem';
@@ -9,14 +15,64 @@ export default function itemsPage() {
     const [showModal, setShowModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
     const [allItems, setAllItems] = React.useState([]);
+    const [allLocations, setAllLocations] = React.useState([]);
+    const [allRooms, setAllRooms] = React.useState([]);
+    const [allCategories, setAllCategories] = React.useState([]);
+    const [allConditions, setAllConditions] = React.useState([]);
+    const [allCompanies, setAllCompanies] = React.useState([]);
+    const [allContracts, setAllContracts] = React.useState([]);
     const [newItem, setNewItem] = React.useState({});
 
 
-    React.useEffect(() => getItems(), []);
+    React.useEffect(() => {
+        getItems();
+        getLocations();
+        getRooms();
+        getCategories();
+        getConditions();
+        getCompanies();
+        getContracts();
+    }, []);
 
     const getItems = () => {
         viewAllItems().then(allItems => {
             setAllItems(allItems);
+        })
+    };
+
+    const getLocations = () => {
+        viewAllLocations().then(allItems => {
+            setAllLocations(allItems);
+        })
+    };
+
+    const getRooms = () => {
+        viewAllRooms().then(allItems => {
+            setAllRooms(allItems);
+        })
+    };
+
+    const getCategories = () => {
+        viewAllCategories().then(allItems => {
+            setAllCategories(allItems);
+        })
+    };
+
+    const getConditions = () => {
+        viewAllConditions().then(allItems => {
+            setAllConditions(allItems);
+        })
+    };
+
+    const getCompanies = () => {
+        viewAllCompanies().then(allItems => {
+            setAllCompanies(allItems);
+        })
+    };
+
+    const getContracts = () => {
+        viewAllContracts().then(allItems => {
+            setAllContracts(allItems);
         })
     };
 
@@ -101,6 +157,12 @@ export default function itemsPage() {
                 open={showModal}
                 handleClose={handleCloseModal}
                 allItems={allItems}
+                allLocations={allLocations}
+                allRooms={allRooms}
+                allCategories={allCategories}
+                allConditions={allConditions}
+                allCompanies={allCompanies}
+                allContracts={allContracts}
                 handleChange={handleChange}
                 handleClickUpdateItem={handleClickUpdateItem}
                 handleClickOnCreateNewItem={handleClickOnCreateNewItem}

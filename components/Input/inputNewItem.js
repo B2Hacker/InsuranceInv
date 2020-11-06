@@ -1,5 +1,5 @@
 export default function AddItem(props) {
-    const { newItem, handleChange, cancelCreateNewItem, createNewItem } = props
+    const { allLocations, allRooms, allCategories, allConditions, allCompanies, allContracts, newItem, handleChange, cancelCreateNewItem, createNewItem } = props
 
     return (
         <div>
@@ -26,6 +26,66 @@ export default function AddItem(props) {
                     onChange={handleChange()("description")}
                     value={newItem.description || ""}
                 />
+            </div>
+
+            <div >
+                <label htmlFor="multi-location">Location</label>
+                <select className="custom-select" id="multi-location"
+                    onChange={handleChange()("location")}
+                    value={newItem.location || []}
+                >
+                    <option value="" disabled  >Select Location</option>
+                    {allLocations.map(location => (
+                        <option key={location._id} value={location._id}
+                        >{location.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            <div >
+                <label htmlFor="multi-room">Room</label>
+                <select className="custom-select" id="multi-room"
+                    onChange={handleChange()("room")}
+                    value={newItem.room || []}
+                >
+                    <option value="" disabled  >Select Room</option>
+                    {allRooms.map(room => (
+                        <option key={room._id} value={room._id}
+                        >{room.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            <div >
+                <label htmlFor="multi-category">Category</label>
+                <select className="custom-select" id="multi-category"
+                    onChange={handleChange()("category")}
+                    value={newItem.category || []}
+                >
+                    <option value="" disabled  >Select Category</option>
+                    {allCategories.map(category => (
+                        <option key={category._id} value={category._id}
+                        >{category.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            <div >
+                <label htmlFor="multi-condition">Condition</label>
+                <select className="custom-select" id="multi-condition"
+                    onChange={handleChange()("condition")}
+                    value={newItem.condition || []}
+                >
+                    <option value="" disabled  >Select Condition</option>
+                    {allConditions.map(condition => (
+                        <option key={condition._id} value={condition._id}
+                        >{condition.name}
+                        </option>
+                    ))}
+                </select>
             </div>
 
             <div >
@@ -101,6 +161,21 @@ export default function AddItem(props) {
             </div>
 
             <div >
+                <label htmlFor="multi-company">Company</label>
+                <select className="custom-select" id="multi-company"
+                    onChange={handleChange()("company")}
+                    value={newItem.company || []}
+                >
+                    <option value="" disabled  >Select Company</option>
+                    {allCompanies.map(company => (
+                        <option key={company._id} value={company._id}
+                        >{company.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            <div >
                 <label>Cost</label>
                 <input
                     type="text"
@@ -110,6 +185,21 @@ export default function AddItem(props) {
                     onChange={handleChange("purchaseInfo")("cost")}
                     value={newItem.purchaseInfo ? newItem.purchaseInfo.cost : ""}
                 />
+            </div>
+
+            <div >
+                <label htmlFor="multi-contract">Contract</label>
+                <select className="custom-select" id="multi-contract"
+                    onChange={handleChange()("contract")}
+                    value={newItem.contract || []}
+                >
+                    <option value="" disabled  >Select Contract</option>
+                    {allContracts.map(contract => (
+                        <option key={contract._id} value={contract._id}
+                        >{contract.name}
+                        </option>
+                    ))}
+                </select>
             </div>
 
             {/* <div >

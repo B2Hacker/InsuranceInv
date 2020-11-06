@@ -3,7 +3,7 @@ import AddItem from "../Input/inputNewItem";
 
 
 const ModalItem = props => {
-    const { handleClose, open, allItems, newItem, editMode, handleChange, handleClickUpdateItem, createItem, handleClickOnCreateNewItem, cancelCreateNewItem } = props;
+    const { handleClose, open, allItems, allLocations, allRooms, allCategories, allConditions, allCompanies, allContracts, newItem, editMode, handleChange, handleClickUpdateItem, createItem, handleClickOnCreateNewItem, cancelCreateNewItem } = props;
 
     return (
 
@@ -16,6 +16,12 @@ const ModalItem = props => {
                 <AddItem
                     newItem={newItem}
                     handleChange={handleChange}
+                    allLocations={allLocations}
+                    allRooms={allRooms}
+                    allCategories={allCategories}
+                    allConditions={allConditions}
+                    allCompanies={allCompanies}
+                    allContracts={allContracts}
                 />
             </Modal.Body>
 
