@@ -3,7 +3,7 @@ import AddRoom from "../Input/inputNewRoom";
 
 
 const ModalRoom = props => {
-        const { handleClose, open, allRooms, newRoom, editMode, handleChange, handleClickUpdateRoom, createRoom, handleClickOnCreateNewRoom, cancelCreateNewRoom } = props;
+        const { handleClose, open, allRooms, allLocations, newRoom, editMode, handleChange, handleClickUpdateRoom, createRoom, handleClickOnCreateNewRoom, cancelCreateNewRoom } = props;
 
     return (
 
@@ -16,6 +16,7 @@ const ModalRoom = props => {
                 <AddRoom
                     newRoom={newRoom}
                     handleChange={handleChange}
+                    allLocations={allLocations}
                 />
             </Modal.Body>
 

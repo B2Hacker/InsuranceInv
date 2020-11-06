@@ -1,5 +1,5 @@
 export default function AddRoom(props) {
-    const { newRoom, handleChange, cancelCreateNewRoom, createNewRoom } = props
+    const { newRoom, allRooms, allLocations, handleChange, cancelCreateNewRoom, createNewRoom } = props
 
     return (
         <div>
@@ -28,6 +28,21 @@ export default function AddRoom(props) {
                 />
             </div>
 
+            <div >
+                <label htmlFor="multi-location">Location</label>
+                <select className="custom-select" id="multi-location"
+                    onChange={handleChange()("location")}
+                    value={newRoom.location || []}
+                >
+                    <option value="" disabled  >Select location</option>
+                    {allLocations.map(location => (
+                        <option key={location._id} value={location._id}
+                        >{location.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
         </div>
     )
 }
@@ -37,6 +52,6 @@ AddRoom.defaultProps = {
         name: "",
         description: "",
         pictures: "",
-        location: [{}]
+        location: ""
     }
 }

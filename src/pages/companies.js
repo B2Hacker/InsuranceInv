@@ -8,7 +8,7 @@ export default function companiesPage() {
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
-    const [allCompaniesState, setAllCompaniesState] = React.useState([]);
+    const [allCompanies, setAllCompanies] = React.useState([]);
     const [newCompany, setNewCompany] = React.useState({});
 
 
@@ -16,7 +16,7 @@ export default function companiesPage() {
 
     const getCompanies = () => {
         viewAllCompanies().then(allCompanies => {
-            setAllCompaniesState(allCompanies);
+            setAllCompanies(allCompanies);
         })
     };
 
@@ -84,9 +84,9 @@ export default function companiesPage() {
     };
 
     const handleClickDeleteCompany = companyID => {
-        const borrandoCompany = allCompaniesState.filter((company) => company.companyID !== companyID);
+        const borrandoCompany = allCompanies.filter((company) => company.companyID !== companyID);
         console.log("DELETING", companyID);
-        setAllCompaniesState(borrandoCompany)
+        setAllCompanies(borrandoCompany)
         deleteCompany(companyID);
         setNewCompany(true);
         setShowElements(true);
@@ -99,7 +99,7 @@ export default function companiesPage() {
             <ModalCompany
                 open={showModal}
                 handleClose={handleCloseModal}
-                allCompanies={allCompaniesState}
+                allCompanies={allCompanies}
                 handleChange={handleChange}
                 handleClickUpdateCompany={handleClickUpdateCompany}
                 handleClickOnCreateNewCompany={handleClickOnCreateNewCompany}
@@ -125,7 +125,7 @@ export default function companiesPage() {
 
                 <div >
                     <ListCompany
-                        allCompanies={allCompaniesState}
+                        allCompanies={allCompanies}
                         handleClickEditCompany={handleClickEditCompany}
                         handleClickDeleteCompany={handleClickDeleteCompany}
                     />

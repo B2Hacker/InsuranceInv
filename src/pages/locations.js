@@ -8,7 +8,7 @@ export default function locationsPage() {
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
-    const [allLocationsState, setAllLocationsState] = React.useState([]);
+    const [allLocations, setAllLocations] = React.useState([]);
     const [newLocation, setNewLocation] = React.useState({});
 
 
@@ -16,7 +16,7 @@ export default function locationsPage() {
 
     const getLocations = () => {
         viewAllLocations().then(allLocations => {
-            setAllLocationsState(allLocations);
+            setAllLocations(allLocations);
         })
     };
 
@@ -86,9 +86,9 @@ export default function locationsPage() {
     };
 
     const handleClickDeleteLocation = locationID => {
-        const borrandoLocation = allLocationsState.filter((location) => location.locationID !== locationID);
+        const borrandoLocation = allLocations.filter((location) => location.locationID !== locationID);
         console.log("DELETING", locationID);
-        setAllLocationsState(borrandoLocation)
+        setAllLocations(borrandoLocation)
 
         deleteLocation(locationID);
         setNewLocation(true);
@@ -100,7 +100,7 @@ export default function locationsPage() {
             <ModalLocation
                 open={showModal}
                 handleClose={handleCloseModal}
-                allLocations={allLocationsState}
+                allLocations={allLocations}
                 handleChange={handleChange}
                 handleClickUpdateLocation={handleClickUpdateLocation}
                 handleClickOnCreateNewLocation={handleClickOnCreateNewLocation}
@@ -126,7 +126,7 @@ export default function locationsPage() {
 
                 <div >
                     <ListLocation
-                        allLocations={allLocationsState}
+                        allLocations={allLocations}
                         handleClickEditLocation={handleClickEditLocation}
                         handleClickDeleteLocation={handleClickDeleteLocation}
                     />

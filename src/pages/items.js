@@ -8,7 +8,7 @@ export default function itemsPage() {
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
-    const [allItemsState, setAllItemsState] = React.useState([]);
+    const [allItems, setAllItems] = React.useState([]);
     const [newItem, setNewItem] = React.useState({});
 
 
@@ -16,7 +16,7 @@ export default function itemsPage() {
 
     const getItems = () => {
         viewAllItems().then(allItems => {
-            setAllItemsState(allItems);
+            setAllItems(allItems);
         })
     };
 
@@ -84,9 +84,9 @@ export default function itemsPage() {
     };
 
     const handleClickDeleteItem = itemID => {
-        const borrandoItem = allItemsState.filter((item) => item.itemID !== itemID);
+        const borrandoItem = allItems.filter((item) => item.itemID !== itemID);
         console.log("DELETING", itemID);
-        setAllItemsState(borrandoitem)
+        setAllItems(borrandoitem)
 
         deleteItem(itemID);
         setNewItem(true);
@@ -100,7 +100,7 @@ export default function itemsPage() {
             <ModalItem
                 open={showModal}
                 handleClose={handleCloseModal}
-                allItems={allItemsState}
+                allItems={allItems}
                 handleChange={handleChange}
                 handleClickUpdateItem={handleClickUpdateItem}
                 handleClickOnCreateNewItem={handleClickOnCreateNewItem}
@@ -126,7 +126,7 @@ export default function itemsPage() {
 
                 <div >
                     <ListItem
-                        allItems={allItemsState}
+                        allItems={allItems}
                         handleClickEditItem={handleClickEditItem}
                         handleClickDeleteItem={handleClickDeleteItem}
                     />

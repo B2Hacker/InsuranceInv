@@ -8,7 +8,7 @@ export default function conditionsPage() {
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
-    const [allConditionsState, setAllConditionsState] = React.useState([]);
+    const [allConditions, setAllConditions] = React.useState([]);
     const [newCondition, setNewCondition] = React.useState({});
 
 
@@ -16,7 +16,7 @@ export default function conditionsPage() {
 
     const getConditions = () => {
         viewAllConditions().then(allConditions => {
-            setAllConditionsState(allConditions);
+            setAllConditions(allConditions);
         })
     };
 
@@ -84,9 +84,9 @@ export default function conditionsPage() {
     };
 
     const handleClickDeleteCondition = conditionID => {
-        const borrandoCondition = allConditionsState.filter((condition) => condition.conditionID !== conditionID);
+        const borrandoCondition = allConditions.filter((condition) => condition.conditionID !== conditionID);
         console.log("DELETING", conditionID);
-        setAllConditionsState(borrandoCondition)
+        setAllConditions(borrandoCondition)
 
         deleteCondition(conditionID);
         setNewCondition(true);
@@ -100,7 +100,7 @@ export default function conditionsPage() {
             <ModalCondition
                 open={showModal}
                 handleClose={handleCloseModal}
-                allConditions={allConditionsState}
+                allConditions={allConditions}
                 handleChange={handleChange}
                 handleClickUpdateCondition={handleClickUpdateCondition}
                 handleClickOnCreateNewCondition={handleClickOnCreateNewCondition}
@@ -126,7 +126,7 @@ export default function conditionsPage() {
 
                 <div >
                     <ListCondition
-                        allConditions={allConditionsState}
+                        allConditions={allConditions}
                         handleClickEditCondition={handleClickEditCondition}
                         handleClickDeleteCondition={handleClickDeleteCondition}
                     />

@@ -3,7 +3,7 @@ import AddContact from "../Input/inputNewContact";
 
 
 const ModalContact = props => {
-        const { handleClose, open, allContacts, newContact, editMode, handleChange, handleClickUpdateContact, createContact, handleClickOnCreateNewContact, cancelCreateNewContact } = props;
+        const { handleClose, open, allContacts, allCompanies, newContact, editMode, handleChange, handleClickUpdateContact, createContact, handleClickOnCreateNewContact, cancelCreateNewContact } = props;
 
     return (
 
@@ -17,6 +17,7 @@ const ModalContact = props => {
                 <AddContact
                     newContact={newContact}
                     handleChange={handleChange}
+                    allCompanies={allCompanies}
                 />
 
             </Modal.Body>

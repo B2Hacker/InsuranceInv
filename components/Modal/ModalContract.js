@@ -3,7 +3,7 @@ import AddContract from "../Input/inputNewContract";
 
 
 const ModalContract = props => {
-        const { handleClose, open, allContracts, newContract, editMode, handleChange, handleClickUpdateContract, createContract, handleClickOnCreateNewContract, cancelCreateNewContract } = props;
+        const { handleClose, open, allContracts, allContacts, allCompanies, newContract, editMode, handleChange, handleClickUpdateContract, createContract, handleClickOnCreateNewContract, cancelCreateNewContract } = props;
 
     return (
 
@@ -16,6 +16,8 @@ const ModalContract = props => {
                 <AddContract
                     newContract={newContract}
                     handleChange={handleChange}
+                    allCompanies={allCompanies}
+                    allContacts={allContacts}
                 />
             </Modal.Body>
 

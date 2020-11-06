@@ -1,5 +1,5 @@
 export default function AddContract(props) {
-    const { newContract, handleChange, cancelCreateNewContract, createNewContract } = props
+    const { allContacts, allCompanies, newContract, handleChange, cancelCreateNewContract, createNewContract } = props
 
     return (
         <div>
@@ -26,6 +26,36 @@ export default function AddContract(props) {
                     onChange={handleChange()("description")}
                     value={newContract.description || ""}
                 />
+            </div>
+
+            <div >
+                <label htmlFor="multi-company">Company</label>
+                <select className="custom-select" id="multi-company"
+                    onChange={handleChange()("company")}
+                    value={newContract.company || []}
+                >
+                    <option value="" disabled  >Select Company</option>
+                    {allCompanies.map(company => (
+                        <option key={company._id} value={company._id}
+                        >{company.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            <div >
+                <label htmlFor="multi-contact">Contact</label>
+                <select className="custom-select" id="multi-contact"
+                    onChange={handleChange()("contact")}
+                    value={newContract.contact || []}
+                >
+                    <option value="" disabled  >Select Contact</option>
+                    {allContacts.map(contact => (
+                        <option key={contact._id} value={contact._id}
+                        >{contact.name}
+                        </option>
+                    ))}
+                </select>
             </div>
 
             <div >

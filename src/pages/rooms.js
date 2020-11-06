@@ -1,4 +1,5 @@
 import { viewAllRooms, viewRoom, createRoom, updateRoom, deleteRoom } from "../../src/lib/apiRoom";
+import { viewAllLocations, viewLocation } from "../../src/lib/apiLocation";
 import ListRoom from "../../components/List/ListRoom";
 import styles from '../../styles/Home.module.css';
 import ModalRoom from '../../components/Modal/ModalRoom';
@@ -8,17 +9,27 @@ export default function roomsPage() {
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
-    const [allRoomsState, setAllRoomsState] = React.useState([]);
+    const [allRooms, setAllRooms] = React.useState([]);
+    const [allLocations, setAllLocations] = React.useState([]);
     const [newRoom, setNewRoom] = React.useState({});
 
 
-    React.useEffect(() => getRooms(), []);
+    React.useEffect(() => {
+        getRooms();
+        getLocations();
+    }, []);
 
     const getRooms = () => {
         viewAllRooms().then(allRooms => {
-            setAllRoomsState(allRooms);
+            setAllRooms(allRooms);
         })
     };
+
+    const getLocations = () => {
+        viewAllLocations().then(allRooms => {
+            setAllLocations(allRooms);
+        });
+    }
 
     const handleCloseModal = () => {
         console.log("handleCloseModal")
@@ -84,14 +95,15 @@ export default function roomsPage() {
     };
 
     const handleClickDeleteRoom = roomID => {
-        const borrandoRoom = allRoomsState.filter((room) => room.roomID !== roomID);
+        const borrandoRoom = allRooms.filter((room) => room.roomID !== roomID);
         console.log("DELETING", roomID);
-        setAllRoomsState(borrandoRoom)
+        setAllRooms(borrandoRoom)
 
         deleteRoom(roomID);
         setNewRoom(true);
         setShowElements(true);
 
+        handleCloseModal()
         getRooms();
     };
 
@@ -100,7 +112,8 @@ export default function roomsPage() {
             <ModalRoom
                 open={showModal}
                 handleClose={handleCloseModal}
-                allRooms={allRoomsState}
+                allRooms={allRooms}
+                allLocations={allLocations}
                 handleChange={handleChange}
                 handleClickUpdateRoom={handleClickUpdateRoom}
                 handleClickOnCreateNewRoom={handleClickOnCreateNewRoom}
@@ -126,7 +139,7 @@ export default function roomsPage() {
 
                 <div >
                     <ListRoom
-                        allRooms={allRoomsState}
+                        allRooms={allRooms}
                         handleClickEditRoom={handleClickEditRoom}
                         handleClickDeleteRoom={handleClickDeleteRoom}
                     />

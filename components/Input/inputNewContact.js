@@ -1,5 +1,5 @@
 export default function AddContact(props) {
-    const { newContact, handleChange, cancelCreateNewContact, createNewContact } = props
+    const { allCompanies, newContact, handleChange, cancelCreateNewContact, createNewContact } = props
 
     return (
         <div>
@@ -50,6 +50,21 @@ export default function AddContact(props) {
                     onChange={handleChange()("lastName")}
                     value={newContact.lastName || ""}
                 />
+            </div>
+
+            <div >
+                <label htmlFor="multi-company">Company</label>
+                <select className="custom-select" id="multi-company"
+                    onChange={handleChange()("company")}
+                    value={newContact.company || []}
+                >
+                    <option value="" disabled  >Select Company</option>
+                    {allCompanies.map(company => (
+                        <option key={company._id} value={company._id}
+                        >{company.name}
+                        </option>
+                    ))}
+                </select>
             </div>
 
             <div >

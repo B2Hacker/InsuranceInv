@@ -1,4 +1,5 @@
 import { viewAllContacts, viewContact, createContact, updateContact, deleteContact } from "../../src/lib/apiContact";
+import { viewAllCompanies, viewCompany } from "../../src/lib/apiCompany";
 import ListContact from "../../components/List/ListContact";
 import styles from '../../styles/Home.module.css';
 import ModalContact from '../../components/Modal/ModalContact';
@@ -8,15 +9,25 @@ export default function contactsPage() {
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
-    const [allContactsState, setAllContactsState] = React.useState([]);
+    const [allContacts, setAllContacts] = React.useState([]);
+    const [allCompanies, setAllCompanies] = React.useState([]);
     const [newContact, setNewContact] = React.useState({});
 
 
-    React.useEffect(() => getContacts(), []);
+    React.useEffect(() => {
+        getContacts();
+        getCompanies();
+    }, []);
 
     const getContacts = () => {
         viewAllContacts().then(allContacts => {
-            setAllContactsState(allContacts);
+            setAllContacts(allContacts);
+        })
+    };
+
+    const getCompanies = () => {
+        viewAllCompanies().then(allContacts => {
+            setAllCompanies(allContacts);
         })
     };
 
@@ -84,9 +95,9 @@ export default function contactsPage() {
     };
 
     const handleClickDeleteContact = contactID => {
-        const borrandoContact = allContactsState.filter((contact) => contact.contactID !== contactID);
+        const borrandoContact = allContacts.filter((contact) => contact.contactID !== contactID);
         console.log("DELETING", contactID);
-        setAllContactsState(borrandoContact)
+        setAllContacts(borrandoContact)
 
         deleteContact(contactID);
         setNewContact(true);
@@ -100,7 +111,8 @@ export default function contactsPage() {
             <ModalContact
                 open={showModal}
                 handleClose={handleCloseModal}
-                allContacts={allContactsState}
+                allContacts={allContacts}
+                allCompanies={allCompanies}
                 handleChange={handleChange}
                 handleClickUpdateContact={handleClickUpdateContact}
                 handleClickOnCreateNewContact={handleClickOnCreateNewContact}
@@ -126,7 +138,7 @@ export default function contactsPage() {
 
                 <div >
                     <ListContact
-                        allContacts={allContactsState}
+                        allContacts={allContacts}
                         handleClickEditContact={handleClickEditContact}
                         handleClickDeleteContact={handleClickDeleteContact}
                     />
