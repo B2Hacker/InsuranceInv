@@ -32,7 +32,7 @@ const ModalCondition = props => {
                     Cancel
                 </Button>
 
-                <Button variant="primary" onClick={createCondition}>
+                <div variant="primary" onClick={createCondition}>
                     {editMode ? <button
                         variant="success" size="sm"
                         onClick={() => handleClickUpdateCondition()}
@@ -42,7 +42,7 @@ const ModalCondition = props => {
                         :
                         <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewCondition()}><i className="fa fa-database">
                         </i> &nbsp; Save</button>}
-                </Button>
+                </div>
 
 
 

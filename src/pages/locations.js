@@ -65,6 +65,7 @@ export default function locationsPage() {
             getLocations();
             setNewLocation({})
             setShowElements(true);
+            handleCloseModal();
         })
 
     };

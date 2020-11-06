@@ -65,6 +65,7 @@ export default function contactsPage() {
             getContacts();
             setNewContact({})
             setShowElements(true);
+            handleCloseModal();
         })
 
     };

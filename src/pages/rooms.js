@@ -65,6 +65,7 @@ export default function roomsPage() {
             getRooms();
             setNewRoom({})
             setShowElements(true);
+            handleCloseModal();
         })
 
     };

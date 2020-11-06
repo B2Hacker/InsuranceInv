@@ -65,6 +65,7 @@ export default function companiesPage() {
             getCompanies();
             setNewCompany({})
             setShowElements(true);
+            handleCloseModal();
         })
 
     };

@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
 
 const ModalCategory = props => {
     const classes = useStyles();
-    const { handleClose, open, allCategories, newCategory, editMode, handleChange, handleClickUpdateCategory, createCategory, handleClickOnCreateNewCategory, cancelCreateNewCategory } = props;
+    const { handleClose, open, allCategories, allSubCategories, newCategory, editMode, handleChange, handleClickUpdateCategory, createCategory, handleClickOnCreateNewCategory, cancelCreateNewCategory } = props;
 
     return (
 
@@ -22,6 +22,7 @@ const ModalCategory = props => {
             <Modal.Body>
                 <AddCategory
                     newCategory={newCategory}
+                    allSubCategories={allSubCategories}
                     handleChange={handleChange}
                 />
 

@@ -9,16 +9,16 @@ import ModalSubCategory from "../../components/Modal/ModalSubCategory";
 
 export default function categoriesPage() {
 
-    const [showElements, setShowElements] = React.useState(true);
+    
     const [showModal, setShowModal] = React.useState(false);
     const [allCategoriesState, setAllCategoriesState] = React.useState([]);
     const [newCategory, setNewCategory] = React.useState({});
 
-    const [showElementsSubCategory, setShowElementsSubCategory] = React.useState(true);
     const [showModalSubCategory, setShowModalSubCategory] = React.useState(false);
     const [allSubCategoriesState, setAllSubCategoriesState] = React.useState([]);
     const [newSubCategory, setNewSubCategory] = React.useState({});
 
+    const [showElements, setShowElements] = React.useState(true);
     const [editMode, setEditMode] = React.useState(false);
 
     React.useEffect(() => {
@@ -78,6 +78,7 @@ export default function categoriesPage() {
             getCategories();
             setNewCategory({})
             setShowElements(true);
+            handleCloseModal();
         })
 
     };
@@ -157,14 +158,15 @@ export default function categoriesPage() {
         createSubCategory(newSubCategory).then(subcategory => {
             getSubCategories();
             setNewSubCategory({})
-            setShowElementsSubCategory(true);
+            setShowElements(true);
+            handleCloseModalSubCategory();
         })
 
     };
 
     const handleClickOnCancelNewSubCategory = () => {
         setNewSubCategory({})
-        setShowElementsSubCategory(true);
+        setShowElements(true);
     };
 
     const handleClickEditSubCategory = subcategoryID => {
@@ -183,7 +185,7 @@ export default function categoriesPage() {
 
         deleteSubCategory(subcategoryID);
         setNewSubCategory(true);
-        setShowElementsSubCategory(true);
+        setShowElements(true);
     };
 
 
@@ -192,6 +194,7 @@ export default function categoriesPage() {
             <ModalCategory
                 open={showModal}
                 handleClose={handleCloseModal}
+                allSubCategories={allSubCategoriesState}
                 allCategories={allCategoriesState}
                 handleChange={handleChange}
                 handleClickUpdateCategory={handleClickUpdateCategory}
@@ -203,7 +206,7 @@ export default function categoriesPage() {
             <ModalSubCategory
                 open={showModalSubCategory}
                 handleClose={handleCloseModalSubCategory}
-                allCategories={allSubCategoriesState}
+                allSubCategories={allSubCategoriesState}
                 handleChange={handleChangeSubCategory}
                 handleClickUpdateSubCategory={handleClickUpdateSubCategory}
                 handleClickOnCreateNewSubCategory={handleClickOnCreateNewSubCategory}
@@ -240,7 +243,7 @@ export default function categoriesPage() {
                 </div>
 
                 <div className={styles.main}>
-                    {showElementsSubCategory ?
+                    {showElements ?
                         <button
                             className="btn btn-success"
                             onClick={() => handleClickAddSubCategory()}

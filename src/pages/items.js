@@ -4,7 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalItem from '../../components/Modal/ModalItem';
 
-export default function ItemsPage() {
+export default function itemsPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
@@ -65,6 +65,7 @@ export default function ItemsPage() {
             getItems();
             setNewItem({})
             setShowElements(true);
+            handleCloseModal();
         })
 
     };

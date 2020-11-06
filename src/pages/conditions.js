@@ -36,7 +36,7 @@ export default function conditionsPage() {
 
     const handleClickUpdateCondition = () => {
         updateCondition(newCondition).then(() => {
-            handleCloseModal()
+            handleCloseModal();
             getConditions();
         })
     }
@@ -65,6 +65,7 @@ export default function conditionsPage() {
             getConditions();
             setNewCondition({})
             setShowElements(true);
+            handleCloseModal();
         })
 
     };

@@ -47,9 +47,9 @@ export default function ListItem(props) {
                                         </div>
                                     </Card>
                                 </td>
-                                <td>{item.location}</td>
-                                {/* <td>{item.room}</td>
-                                <td>{item.category}</td> */}
+                                <td>{item.location.name}</td>
+                                <td>{item.room.name}</td>
+                                <td>{item.category.name}</td>
                                 <td>{item.condition}</td>
                                 <td>{item.estimatedValue}</td>
                                 <td>{item.model}</td>

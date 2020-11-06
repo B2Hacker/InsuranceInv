@@ -65,6 +65,7 @@ export default function contractsPage() {
             getContracts();
             setNewContract({})
             setShowElements(true);
+            handleCloseModal();
         })
 
     };
