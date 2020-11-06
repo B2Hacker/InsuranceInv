@@ -91,6 +91,8 @@ export default function contactsPage() {
         deleteContact(contactID);
         setNewContact(true);
         setShowElements(true);
+
+        getContacts();
     };
 
     return (
@@ -126,7 +128,7 @@ export default function contactsPage() {
                     <ListContact
                         allContacts={allContactsState}
                         handleClickEditContact={handleClickEditContact}
-                        Borrar={handleClickDeleteContact}
+                        handleClickDeleteContact={handleClickDeleteContact}
                     />
                 </div>
             </div>

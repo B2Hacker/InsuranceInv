@@ -91,6 +91,8 @@ export default function contractsPage() {
         deleteContract(contractID);
         setNewContract(true);
         setShowElements(true);
+
+        getContracts();
     };
 
     return (
@@ -126,7 +128,7 @@ export default function contractsPage() {
                     <ListContract
                         allContracts={allContractsState}
                         handleClickEditContract={handleClickEditContract}
-                        Borrar={handleClickDeleteContract}
+                        handleClickDeleteContract={handleClickDeleteContract}
                     />
                 </div>
             </div>

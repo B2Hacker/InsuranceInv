@@ -91,6 +91,8 @@ export default function conditionsPage() {
         deleteCondition(conditionID);
         setNewCondition(true);
         setShowElements(true);
+
+        getConditions();
     };
 
     return (
@@ -126,7 +128,7 @@ export default function conditionsPage() {
                     <ListCondition
                         allConditions={allConditionsState}
                         handleClickEditCondition={handleClickEditCondition}
-                        Borrar={handleClickDeleteCondition}
+                        handleClickDeleteCondition={handleClickDeleteCondition}
                     />
                 </div>
             </div>

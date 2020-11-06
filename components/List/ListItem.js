@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function ListItem(props) {
 
-    const { allItems, handleClickEditItem, Borrar } = props;
+    const { allItems, handleClickEditItem, handleClickDeleteItem } = props;
 
     return allItems && allItems.length > 0 ? (
         <>
@@ -29,9 +29,10 @@ export default function ListItem(props) {
                             <th>Purchase Date</th>
                             <th>Company</th>
                             <th>Cost</th>
-                            <th>Warranty</th>
+                            {/* <th>Warranty</th> */}
                             <th>Contract</th>
                             <th>Purchase Notes</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,9 +41,9 @@ export default function ListItem(props) {
                                 <td>{item.name}</td>
                                 <td>{item.description}</td>
                                 <td><img src={item.pictures} className="img-fluid" alt="" /></td>
-                                <td>{item.location.name}</td>
-                                <td>{item.room.name}</td>
-                                <td>{item.category.name}</td>
+                                <td>{item.location ? item.location.name : ""}</td>
+                                <td>{item.room ? item.room.name : ""}</td>
+                                <td>{item.category ? item.category.name : ""}</td>
                                 <td>{item.condition}</td>
                                 <td>{item.estimatedValue}</td>
                                 <td>{item.model}</td>
@@ -52,12 +53,12 @@ export default function ListItem(props) {
                                 <td>{item.purchaseInfo.purchaseDate}</td>
                                 <td>{item.purchaseInfo.company}</td>
                                 <td>{item.purchaseInfo.cost}</td>
-                                <td>{item.purchaseInfo.waranty}</td>
+                                {/* <td>{item.purchaseInfo.waranty}</td> */}
                                 <td>{item.purchaseInfo.contract}</td>
                                 <td>{item.purchaseInfo.purchaseNotes}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditItem(item._id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => Borrar(item._id)}>Delete</button>
+                                    <button className="btn btn-danger" onClick={() => handleClickDeleteItem(item._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}

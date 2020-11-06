@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function ListContract(props) {
 
-    const { allContracts, handleClickEditContract, Borrar } = props;
+    const { allContracts, handleClickEditContract, handleClickDeleteContract } = props;
 
     return allContracts && allContracts.length > 0 ? (
         <>
@@ -50,7 +50,7 @@ export default function ListContract(props) {
                                 <td>{contract.paymentType}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditContract(contract._id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => Borrar(contract._id)}>Delete</button>
+                                    <button className="btn btn-danger" onClick={() => handleClickDeleteContract(contract._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}

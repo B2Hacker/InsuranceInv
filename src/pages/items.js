@@ -91,6 +91,8 @@ export default function itemsPage() {
         deleteItem(itemID);
         setNewItem(true);
         setShowElements(true);
+
+        getItems();
     };
 
     return (
@@ -126,7 +128,7 @@ export default function itemsPage() {
                     <ListItem
                         allItems={allItemsState}
                         handleClickEditItem={handleClickEditItem}
-                        Borrar={handleClickDeleteItem}
+                        handleClickDeleteItem={handleClickDeleteItem}
                     />
                 </div>
             </div>

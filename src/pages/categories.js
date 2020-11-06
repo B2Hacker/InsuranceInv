@@ -10,11 +10,11 @@ export default function categoriesPage() {
 
     
     const [showModal, setShowModal] = React.useState(false);
-    const [allCategoriesState, setAllCategoriesState] = React.useState([]);
+    const [allCategories, setAllCategories] = React.useState([]);
     const [newCategory, setNewCategory] = React.useState({});
 
     const [showModalSubCategory, setShowModalSubCategory] = React.useState(false);
-    const [allSubCategoriesState, setAllSubCategoriesState] = React.useState([]);
+    const [allSubCategories, setAllSubCategories] = React.useState([]);
     const [newSubCategory, setNewSubCategory] = React.useState({});
 
     const [showElements, setShowElements] = React.useState(true);
@@ -29,7 +29,7 @@ export default function categoriesPage() {
 
     const getCategories = () => {
         viewAllCategories().then(allCategories => {
-            setAllCategoriesState(allCategories);
+            setAllCategories(allCategories);
         })
     };
 
@@ -97,20 +97,21 @@ export default function categoriesPage() {
     };
 
     const handleClickDeleteCategory = categoryID => {
-        const borrandoCategory = allCategoriesState.filter((category) => category.categoryID !== categoryID);
+        const borrandoCategory = allCategories.filter((category) => category.categoryID !== categoryID);
         console.log("DELETING", categoryID);
-        setAllCategoriesState(borrandoCategory)
+        setAllCategories(borrandoCategory)
 
         deleteCategory(categoryID);
         setNewCategory(true);
         setShowElements(true);
+        getCategories();
     };
 
     //SUBCATEGORIES
 
     const getSubCategories = () => {
         viewAllSubCategories().then(allSubCategories => {
-            setAllSubCategoriesState(allSubCategories);
+            setAllSubCategories(allSubCategories);
         })
     };
 
@@ -178,13 +179,15 @@ export default function categoriesPage() {
     };
 
     const handleClickDeleteSubCategory = subcategoryID => {
-        const borrandoSubCategory = allSubCategoriesState.filter((subcategory) => subcategory.subcategoryID !== subcategoryID);
+        const borrandoSubCategory = allSubCategories.filter((subcategory) => subcategory.subcategoryID !== subcategoryID);
         console.log("DELETING", subcategoryID);
-        setAllSubCategoriesState(borrandoSubCategory)
+        setAllSubCategories(borrandoSubCategory)
 
         deleteSubCategory(subcategoryID);
         setNewSubCategory(true);
         setShowElements(true);
+        
+        getSubCategories();
     };
 
 
@@ -193,8 +196,8 @@ export default function categoriesPage() {
             <ModalCategory
                 open={showModal}
                 handleClose={handleCloseModal}
-                allSubCategories={allSubCategoriesState}
-                allCategories={allCategoriesState}
+                allSubCategories={allSubCategories}
+                allCategories={allCategories}
                 handleChange={handleChange}
                 handleClickUpdateCategory={handleClickUpdateCategory}
                 handleClickOnCreateNewCategory={handleClickOnCreateNewCategory}
@@ -205,7 +208,7 @@ export default function categoriesPage() {
             <ModalSubCategory
                 open={showModalSubCategory}
                 handleClose={handleCloseModalSubCategory}
-                allSubCategories={allSubCategoriesState}
+                allSubCategories={allSubCategories}
                 handleChange={handleChangeSubCategory}
                 handleClickUpdateSubCategory={handleClickUpdateSubCategory}
                 handleClickOnCreateNewSubCategory={handleClickOnCreateNewSubCategory}
@@ -230,9 +233,9 @@ export default function categoriesPage() {
 
                 <div >
                     <ListCategory
-                        allCategories={allCategoriesState}
+                        allCategories={allCategories}
                         handleClickEditCategory={handleClickEditCategory}
-                        Borrar={handleClickDeleteCategory}
+                        handleClickDeleteCategory={handleClickDeleteCategory}
                     />
                 </div>
 
@@ -254,9 +257,9 @@ export default function categoriesPage() {
 
                 <div >
                     <ListSubCategory
-                        allSubCategories={allSubCategoriesState}
+                        allSubCategories={allSubCategories}
                         handleClickEditSubCategory={handleClickEditSubCategory}
-                        Borrar={handleClickDeleteSubCategory}
+                        handleClickDeleteSubCategory={handleClickDeleteSubCategory}
                     />
                 </div>
             </div>

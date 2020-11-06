@@ -91,6 +91,8 @@ export default function roomsPage() {
         deleteRoom(roomID);
         setNewRoom(true);
         setShowElements(true);
+
+        getRooms();
     };
 
     return (
@@ -126,7 +128,7 @@ export default function roomsPage() {
                     <ListRoom
                         allRooms={allRoomsState}
                         handleClickEditRoom={handleClickEditRoom}
-                        Borrar={handleClickDeleteRoom}
+                        handleClickDeleteRoom={handleClickDeleteRoom}
                     />
                 </div>
             </div>

@@ -80,6 +80,8 @@ export default function locationsPage() {
             setShowModal(true);
             setEditMode(true);
             setNewLocation(location);
+
+            getLocations();
         })
     };
 
@@ -126,7 +128,7 @@ export default function locationsPage() {
                     <ListLocation
                         allLocations={allLocationsState}
                         handleClickEditLocation={handleClickEditLocation}
-                        Borrar={handleClickDeleteLocation}
+                        handleClickDeleteLocation={handleClickDeleteLocation}
                     />
                 </div>
             </div>

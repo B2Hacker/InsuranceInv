@@ -90,6 +90,8 @@ export default function companiesPage() {
         deleteCompany(companyID);
         setNewCompany(true);
         setShowElements(true);
+
+        getCompanies();
     };
 
     return (
@@ -125,7 +127,7 @@ export default function companiesPage() {
                     <ListCompany
                         allCompanies={allCompaniesState}
                         handleClickEditCompany={handleClickEditCompany}
-                        Borrar={handleClickDeleteCompany}
+                        handleClickDeleteCompany={handleClickDeleteCompany}
                     />
                 </div>
             </div>

@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function ListContact(props) {
 
-    const { allContacts, handleClickEditContact, Borrar } = props;
+    const { allContacts, handleClickEditContact, handleClickDeleteContact } = props;
 
     return allContacts && allContacts.length > 0 ? (
         <>
@@ -56,7 +56,7 @@ export default function ListContact(props) {
                                 <td>{contact.address.country}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditContact(contact._id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => Borrar(contact._id)}>Delete</button>
+                                    <button className="btn btn-danger" onClick={() => handleClickDeleteContact(contact._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}

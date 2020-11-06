@@ -89,18 +89,6 @@ export default function AddItem(props) {
             </div>
 
             <div >
-                <label>Notes</label>
-                <input
-                    type="text"
-                    size="small"
-                    id="notes-input"
-                    label="Notes"
-                    onChange={handleChange()("notes")}
-                    value={newItem.notes || ""}
-                />
-            </div>
-
-            <div >
                 <label>Purchase Date</label>
                 <input
                     type="date"
@@ -124,7 +112,7 @@ export default function AddItem(props) {
                 />
             </div>
 
-            <div >
+            {/* <div >
                 <label>Warranty</label>
                 <input
                     type="checkbox"
@@ -134,7 +122,7 @@ export default function AddItem(props) {
                     onChange={handleChange("purchaseInfo")("waranty")}
                     value={newItem.purchaseInfo ? newItem.purchaseInfo.waranty : ""}
                 />
-            </div>
+            </div> */}
 
             <div >
                 <label>Purchase Notes</label>

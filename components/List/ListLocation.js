@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function ListLocation(props) {
 
-    const { allLocations, handleClickEditLocation, Borrar } = props;
+    const { allLocations, handleClickEditLocation, handleClickDeleteLocation } = props;
 
     return allLocations && allLocations.length > 0 ? (
         <>
@@ -40,7 +40,7 @@ export default function ListLocation(props) {
                                 <td>{location.address.country}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditLocation(location._id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => Borrar(location._id)}>Delete</button>
+                                    <button className="btn btn-danger" onClick={() => handleClickDeleteLocation(location._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}

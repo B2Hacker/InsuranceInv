@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function ListCategory(props) {
 
-    const { allCategories, handleClickEditCategory, Borrar } = props;
+    const { allCategories, handleClickEditCategory, handleClickDeleteCategory } = props;
 
     return allCategories && allCategories.length > 0 ? (
         <>
@@ -30,7 +30,7 @@ export default function ListCategory(props) {
                                 <td>{category.subCategories}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditCategory(category._id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => Borrar(category._id)}>Delete</button>
+                                    <button className="btn btn-danger" onClick={() => handleClickDeleteCategory(category._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}

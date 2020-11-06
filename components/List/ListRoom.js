@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function ListRoom(props) {
 
-    const { allRooms, handleClickEditRoom, Borrar } = props;
+    const { allRooms, handleClickEditRoom, handleClickDeleteRoom } = props;
 
     return allRooms && allRooms.length > 0 ? (
         <>
@@ -30,7 +30,7 @@ export default function ListRoom(props) {
                                 <td>{room.location}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditRoom(room._id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => Borrar(room._id)}>Delete</button>
+                                    <button className="btn btn-danger" onClick={() => handleClickDeleteRoom(room._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
