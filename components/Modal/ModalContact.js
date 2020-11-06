@@ -1,15 +1,10 @@
-import { makeStyles } from "@material-ui/core/styles";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import AddContact from "../Input/inputNewContact";
 
-const useStyles = makeStyles(theme => ({
-
-}));
 
 const ModalContact = props => {
-    const classes = useStyles();
-    const { handleClose, open, allContacts, newContact, editMode, handleChange, handleClickUpdateContact, createContact, handleClickOnCreateNewContact, cancelCreateNewContact } = props;
+        const { handleClose, open, allContacts, newContact, editMode, handleChange, handleClickUpdateContact, createContact, handleClickOnCreateNewContact, cancelCreateNewContact } = props;
 
     return (
 

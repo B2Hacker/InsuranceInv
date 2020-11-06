@@ -1,15 +1,10 @@
-import { makeStyles } from "@material-ui/core/styles";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import AddContract from "../Input/inputNewContract";
 
-const useStyles = makeStyles(theme => ({
-
-}));
 
 const ModalContract = props => {
-    const classes = useStyles();
-    const { handleClose, open, allContracts, newContract, editMode, handleChange, handleClickUpdateContract, createContract, handleClickOnCreateNewContract, cancelCreateNewContract } = props;
+        const { handleClose, open, allContracts, newContract, editMode, handleChange, handleClickUpdateContract, createContract, handleClickOnCreateNewContract, cancelCreateNewContract } = props;
 
     return (
 

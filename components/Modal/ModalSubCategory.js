@@ -1,15 +1,10 @@
-import { makeStyles } from "@material-ui/core/styles";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import AddSubCategory from "../Input/inputNewSubCategory";
 
-const useStyles = makeStyles(theme => ({
-
-}));
 
 const ModalSubCategory = props => {
-    const classes = useStyles();
-    const { handleClose, open, allCompanies, newSubCategory, editMode, handleChange, handleClickUpdateSubCategory, createSubCategory, handleClickOnCreateNewSubCategory, cancelCreateNewSubCategory } = props;
+        const { handleClose, open, allCompanies, newSubCategory, editMode, handleChange, handleClickUpdateSubCategory, createSubCategory, handleClickOnCreateNewSubCategory, cancelCreateNewSubCategory } = props;
 
     return (
 

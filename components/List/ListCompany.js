@@ -1,6 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
-import { Card } from '@material-ui/core';
+
 
 
 export default function ListCompany(props) {
@@ -37,14 +37,7 @@ export default function ListCompany(props) {
                             <tr key={company._id}>
                                 <td>{company.name}</td>
                                 <td>{company.description}</td>
-                                <td>
-                                    <Card key={company._id}>
-                                        <div className="card bg-dark text-white">
-                                            <img size="16by9" src={company.pictures} className="card-img" alt=""></img>
-                                            <div className="card-img-overlay" />
-                                        </div>
-                                    </Card>
-                                </td>
+                                <td><img src={company.pictures} className="img-fluid" alt="" /></td>
                                 <td>{company.companyFullName}</td>
                                 <td>{company.contactInfo.tel}</td>
                                 <td>{company.contactInfo.tel2}</td>

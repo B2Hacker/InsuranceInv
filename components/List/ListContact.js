@@ -1,6 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
-import { Card } from '@material-ui/core';
+
 
 
 export default function ListContact(props) {
@@ -39,14 +39,7 @@ export default function ListContact(props) {
                             <tr key={contact._id}>
                                 <td>{contact.name}</td>
                                 <td>{contact.description}</td>
-                                <td>
-                                    <Card key={contact._id}>
-                                        <div className="card bg-dark text-white">
-                                            <img size="16by9" src={contact.pictures} className="card-img" alt=""></img>
-                                            <div className="card-img-overlay" />
-                                        </div>
-                                    </Card>
-                                </td>
+                                <td><img src={contact.pictures} className="img-fluid" alt="" /></td>
                                 <td>{contact.firstName}</td>
                                 <td>{contact.lastName}</td>
                                 <td>{contact.company}</td>

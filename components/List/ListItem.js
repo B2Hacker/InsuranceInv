@@ -1,6 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
-import { Card } from '@material-ui/core';
+
 
 
 export default function ListItem(props) {
@@ -39,14 +39,7 @@ export default function ListItem(props) {
                             <tr key={item._id}>
                                 <td>{item.name}</td>
                                 <td>{item.description}</td>
-                                <td>
-                                    <Card key={item._id}>
-                                        <div className="card bg-dark text-white">
-                                            <img size="16by9" src={item.pictures} className="card-img" alt=""></img>
-                                            <div className="card-img-overlay" />
-                                        </div>
-                                    </Card>
-                                </td>
+                                <td><img src={item.pictures} className="img-fluid" alt="" /></td>
                                 <td>{item.location.name}</td>
                                 <td>{item.room.name}</td>
                                 <td>{item.category.name}</td>

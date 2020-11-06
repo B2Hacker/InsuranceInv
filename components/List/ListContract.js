@@ -1,6 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
-import { Card } from '@material-ui/core';
+
 
 
 export default function ListContract(props) {
@@ -36,14 +36,7 @@ export default function ListContract(props) {
                             <tr key={contract._id}>
                                 <td>{contract.name}</td>
                                 <td>{contract.description}</td>
-                                <td>
-                                    <Card key={contract._id}>
-                                        <div className="card bg-dark text-white">
-                                            <img size="16by9" src={contract.pictures} className="card-img" alt=""></img>
-                                            <div className="card-img-overlay" />
-                                        </div>
-                                    </Card>
-                                </td>
+                                <td><img src={contract.pictures} className="img-fluid" alt="" /></td>
                                 <td>{contract.files}</td>
                                 <td>{contract.company}</td>
                                 <td>{contract.contact}</td>

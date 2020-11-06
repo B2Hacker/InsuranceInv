@@ -1,7 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
 
-
 export default function ListCondition(props) {
 
     const { allConditions, handleClickEditCondition, Borrar } = props;

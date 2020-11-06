@@ -1,6 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
-import { Card } from '@material-ui/core';
+
 
 
 export default function ListCategory(props) {
@@ -26,14 +26,7 @@ export default function ListCategory(props) {
                             <tr key={category._id}>
                                 <td>{category.name}</td>
                                 <td>{category.description}</td>
-                                <td>
-                                    <Card key={category._id}>
-                                        <div className="card bg-dark text-white">
-                                            <img size="16by9" src={category.pictures} className="card-img" alt=""></img>
-                                            <div className="card-img-overlay" />
-                                        </div>
-                                    </Card>
-                                </td>
+                                <td><img src={category.pictures} className="img-fluid" alt="" /></td>
                                 <td>{category.subCategories}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditCategory(category._id)}>Edit</button>

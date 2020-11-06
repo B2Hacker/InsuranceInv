@@ -1,6 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
-import { Card } from '@material-ui/core';
+
 
 
 export default function ListLocation(props) {
@@ -31,14 +31,7 @@ export default function ListLocation(props) {
                             <tr key={location._id}>
                                 <td>{location.name}</td>
                                 <td>{location.description}</td>
-                                <td>
-                                    <Card key={location._id}>
-                                        <div className="card bg-dark text-white">
-                                            <img size="16by9" src={location.pictures} className="card-img" alt=""></img>
-                                            <div className="card-img-overlay" />
-                                        </div>
-                                    </Card>
-                                </td>
+                                <td><img src={location.pictures} className="img-fluid" alt="" /></td>
                                 <td>{location.address.streetNumber}</td>
                                 <td>{location.address.street}</td>
                                 <td>{location.address.street2}</td>

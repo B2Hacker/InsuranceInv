@@ -1,15 +1,10 @@
-import { makeStyles } from "@material-ui/core/styles";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import AddRoom from "../Input/inputNewRoom";
 
-const useStyles = makeStyles(theme => ({
-
-}));
 
 const ModalRoom = props => {
-    const classes = useStyles();
-    const { handleClose, open, allRooms, newRoom, editMode, handleChange, handleClickUpdateRoom, createRoom, handleClickOnCreateNewRoom, cancelCreateNewRoom } = props;
+        const { handleClose, open, allRooms, newRoom, editMode, handleChange, handleClickUpdateRoom, createRoom, handleClickOnCreateNewRoom, cancelCreateNewRoom } = props;
 
     return (
 

@@ -1,15 +1,10 @@
-import { makeStyles } from "@material-ui/core/styles";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import AddCompany from "../Input/inputNewCompany";
 
-const useStyles = makeStyles(theme => ({
-
-}));
 
 const ModalCompany = props => {
-    const classes = useStyles();
-    const { handleClose, open, allCompanies, newCompany, editMode, handleChange, handleClickUpdateCompany, createCompany, handleClickOnCreateNewCompany, cancelCreateNewCompany } = props;
+        const { handleClose, open, allCompanies, newCompany, editMode, handleChange, handleClickUpdateCompany, createCompany, handleClickOnCreateNewCompany, cancelCreateNewCompany } = props;
 
     return (
 
