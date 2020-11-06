@@ -1,5 +1,4 @@
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import AddContact from "../Input/inputNewContact";
 
 
@@ -23,24 +22,13 @@ const ModalContact = props => {
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
+            <button className="btn btn-secondary" onClick={handleClose}><i class="fas fa-times"></i>&nbsp;Cancel</button>
 
-                <Button variant="primary" onClick={createContact}>
-                    {editMode ? <button
-                        variant="success" size="sm"
-                        onClick={() => handleClickUpdateContact()}
-                    >
-                        UPDATE
-        </button>
+                <div onClick={createContact}>
+                    {editMode ? <button onClick={() => handleClickUpdateContact()}><i class="fas fa-edit"></i>&nbsp;Update</button>
                         :
-                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewContact()}><i className="fa fa-database">
-                        </i> &nbsp; Save</button>}
-                </Button>
-
-
-
+                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewContact()}><i className="fa fa-database"></i>&nbsp;Save</button>}
+                </div>
             </Modal.Footer>
 
         </Modal>

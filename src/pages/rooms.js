@@ -1,6 +1,5 @@
 import { viewAllRooms, viewRoom, createRoom, updateRoom, deleteRoom } from "../../src/lib/apiRoom";
 import ListRoom from "../../components/List/ListRoom";
-import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalRoom from '../../components/Modal/ModalRoom';
 
@@ -117,7 +116,7 @@ export default function roomsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddRoom()}
                         >
-                            <AddIcon fontSize="small" />Add new Room</button>
+                            <i class="fas fa-plus-square"></i>&nbsp;Add new Room</button>
                         :
                         null
                     }

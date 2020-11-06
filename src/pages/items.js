@@ -1,6 +1,5 @@
 import { viewAllItems, viewItem, createItem, updateItem, deleteItem } from "../../src/lib/apiItem";
 import ListItem from "../../components/List/ListItem";
-import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalItem from '../../components/Modal/ModalItem';
 
@@ -117,7 +116,7 @@ export default function itemsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddItem()}
                         >
-                            <AddIcon fontSize="small" />Add new Item</button>
+                            <i class="fas fa-plus-square"></i>&nbsp;Add new Item</button>
                         :
                         null
                     }

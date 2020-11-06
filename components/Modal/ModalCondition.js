@@ -11,7 +11,6 @@ const ModalCondition = props => {
         <Modal show={open} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>{editMode ? `Modifying ${newCondition.name}` : `Add a new Condition`}</Modal.Title>
-
             </Modal.Header>
 
             <Modal.Body>
@@ -19,28 +18,16 @@ const ModalCondition = props => {
                     newCondition={newCondition}
                     handleChange={handleChange}
                 />
-
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
+            <button type="button" className="btn btn-secondary" onClick={handleClose}><i class="fas fa-times"></i>&nbsp;Cancel</button>
 
-                <div variant="primary" onClick={createCondition}>
-                    {editMode ? <button
-                        variant="success" size="sm"
-                        onClick={() => handleClickUpdateCondition()}
-                    >
-                        UPDATE
-        </button>
+                <div onClick={createCondition}>
+                    {editMode ? <button type="button" onClick={() => handleClickUpdateCondition()}><i class="fas fa-edit"></i>&nbsp;Update</button>
                         :
-                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewCondition()}><i className="fa fa-database">
-                        </i> &nbsp; Save</button>}
+                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewCondition()}><i className="fa fa-database"></i>&nbsp;Save</button>}
                 </div>
-
-
-
             </Modal.Footer>
 
         </Modal>

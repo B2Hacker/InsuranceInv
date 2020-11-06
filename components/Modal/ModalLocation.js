@@ -1,5 +1,4 @@
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import AddLocation from "../Input/inputNewLocation";
 
 
@@ -11,7 +10,6 @@ const ModalLocation = props => {
         <Modal show={open} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>{editMode ? `Modifying ${newLocation.name}` : `Add a new location`}</Modal.Title>
-
             </Modal.Header>
 
             <Modal.Body>
@@ -19,28 +17,16 @@ const ModalLocation = props => {
                     newLocation={newLocation}
                     handleChange={handleChange}
                 />
-
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
+            <button type="button" className="btn btn-secondary" onClick={handleClose}><i class="fas fa-times"></i>&nbsp;Cancel</button>
 
-                <Button variant="primary" onClick={createLocation}>
-                    {editMode ? <button
-                        variant="success" size="sm"
-                        onClick={() => handleClickUpdateLocation()}
-                    >
-                        UPDATE
-        </button>
+                <div onClick={createLocation}>
+                    {editMode ? <button type="button" onClick={() => handleClickUpdateLocation()}><i class="fas fa-edit"></i>&nbsp;Update</button>
                         :
-                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewLocation()}><i className="fa fa-database">
-                        </i> &nbsp; Save</button>}
-                </Button>
-
-
-
+                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewLocation()}><i className="fa fa-database"></i>&nbsp;Save</button>}
+                </div>
             </Modal.Footer>
 
         </Modal>

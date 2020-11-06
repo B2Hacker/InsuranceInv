@@ -2,7 +2,6 @@ import { viewAllCategories, viewCategory, createCategory, updateCategory, delete
 import { viewAllSubCategories, viewSubCategory, createSubCategory, updateSubCategory, deleteSubCategory } from "../../src/lib/apiSubCategory";
 import ListCategory from "../../components/List/ListCategory";
 import ListSubCategory from "../../components/List/ListSubCategory";
-import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalCategory from "../../components/Modal/ModalCategory";
 import ModalSubCategory from "../../components/Modal/ModalSubCategory";
@@ -222,9 +221,8 @@ export default function categoriesPage() {
                     {showElements ?
                         <button
                             className="btn btn-success"
-                            onClick={() => handleClickAddCategory()}
-                        >
-                            <AddIcon fontSize="small" />Add new Category</button>
+                            onClick={() => handleClickAddCategory()}>
+                            <i class="fas fa-plus-square"></i>&nbsp;Add new Category</button>
                         :
                         null
                     }
@@ -248,7 +246,7 @@ export default function categoriesPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddSubCategory()}
                         >
-                            <AddIcon fontSize="small" />Add new SubCategory</button>
+                            <i class="fas fa-plus-square"></i>&nbsp;Add new SubCategory</button>
                         :
                         null
                     }

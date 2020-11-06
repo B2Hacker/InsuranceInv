@@ -1,6 +1,5 @@
 import { viewAllLocations, viewLocation, createLocation, updateLocation, deleteLocation } from "../../src/lib/apiLocation";
 import ListLocation from "../../components/List/ListLocation";
-import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalLocation from '../../components/Modal/ModalLocation';
 
@@ -117,7 +116,7 @@ export default function locationsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddLocation()}
                         >
-                            <AddIcon fontSize="small" />Add new location</button>
+                            <i class="fas fa-plus-square"></i>&nbsp;Add new location</button>
                         :
                         null
                     }

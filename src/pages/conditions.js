@@ -1,6 +1,5 @@
 import { viewAllConditions, viewCondition, createCondition, updateCondition, deleteCondition } from "../../src/lib/apiCondition";
 import ListCondition from "../../components/List/ListCondition";
-import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalCondition from '../../components/Modal/ModalCondition';
 
@@ -117,7 +116,7 @@ export default function conditionsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddCondition()}
                         >
-                            <AddIcon fontSize="small" />Add new Condition</button>
+                            <i class="fas fa-plus-square"></i>&nbsp;Add new Condition</button>
                         :
                         null
                     }

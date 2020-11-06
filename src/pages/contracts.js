@@ -1,6 +1,5 @@
 import { viewAllContracts, viewContract, createContract, updateContract, deleteContract } from "../../src/lib/apiContract";
 import ListContract from "../../components/List/ListContract";
-import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalContract from '../../components/Modal/ModalContract';
 
@@ -117,7 +116,7 @@ export default function contractsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddContract()}
                         >
-                            <AddIcon fontSize="small" />Add new Contract</button>
+                            <i class="fas fa-plus-square"></i>&nbsp;Add new Contract</button>
                         :
                         null
                     }

@@ -7,8 +7,9 @@ export default function Home(props) {
 
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    Insurance Info
-        </h1>
+                <i className="far fa-address-card d-inline-block align-center"></i>&nbsp;
+                Insurance Info
+                </h1>
 
                 <p className={styles.description}>
                     Website to check on Insurance Info

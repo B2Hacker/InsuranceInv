@@ -1,17 +1,15 @@
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import AddItem from "../Input/inputNewItem";
 
 
 const ModalItem = props => {
-        const { handleClose, open, allItems, newItem, editMode, handleChange, handleClickUpdateItem, createItem, handleClickOnCreateNewItem, cancelCreateNewItem } = props;
+    const { handleClose, open, allItems, newItem, editMode, handleChange, handleClickUpdateItem, createItem, handleClickOnCreateNewItem, cancelCreateNewItem } = props;
 
     return (
 
         <Modal show={open} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>{editMode ? `Modifying ${newItem.name}` : `Add a new Item`}</Modal.Title>
-
             </Modal.Header>
 
             <Modal.Body>
@@ -19,30 +17,17 @@ const ModalItem = props => {
                     newItem={newItem}
                     handleChange={handleChange}
                 />
-
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
+                <button type="button" className="btn btn-secondary" onClick={handleClose}><i class="fas fa-times"></i>&nbsp;Cancel</button>
 
-                <Button variant="primary" onClick={createItem}>
-                    {editMode ? <button
-                        variant="success" size="sm"
-                        onClick={() => handleClickUpdateItem()}
-                    >
-                        UPDATE
-        </button>
+                <div onClick={createItem}>
+                    {editMode ? <button type="button" className="btn btn-success" onClick={() => handleClickUpdateItem()}><i class="fas fa-edit"></i>&nbsp;Update</button>
                         :
-                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewItem()}><i className="fa fa-database">
-                        </i> &nbsp; Save</button>}
-                </Button>
-
-
-
+                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewItem()}><i className="fa fa-database"></i>&nbsp;Save</button>}
+                </div>
             </Modal.Footer>
-
         </Modal>
     )
 };

@@ -1,6 +1,5 @@
 import { viewAllCompanies, viewCompany, createCompany, updateCompany, deleteCompany } from "../../src/lib/apiCompany";
 import ListCompany from "../../components/List/ListCompany";
-import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalCompany from '../../components/Modal/ModalCompany';
 
@@ -116,7 +115,7 @@ export default function companiesPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddCompany()}
                         >
-                            <AddIcon fontSize="small" />Add new Company</button>
+                            <i class="fas fa-plus-square"></i>&nbsp;Add new Company</button>
                         :
                         null
                     }

@@ -1,6 +1,5 @@
 import { viewAllContacts, viewContact, createContact, updateContact, deleteContact } from "../../src/lib/apiContact";
 import ListContact from "../../components/List/ListContact";
-import AddIcon from "@material-ui/icons/Add";
 import styles from '../../styles/Home.module.css';
 import ModalContact from '../../components/Modal/ModalContact';
 
@@ -117,7 +116,7 @@ export default function contactsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddContact()}
                         >
-                            <AddIcon fontSize="small" />Add new Contact</button>
+                            <i class="fas fa-plus-square"></i>&nbsp;Add new Contact</button>
                         :
                         null
                     }

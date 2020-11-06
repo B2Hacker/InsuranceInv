@@ -1,5 +1,4 @@
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import AddRoom from "../Input/inputNewRoom";
 
 
@@ -11,7 +10,6 @@ const ModalRoom = props => {
         <Modal show={open} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>{editMode ? `Modifying ${newRoom.name}` : `Add a new room`}</Modal.Title>
-
             </Modal.Header>
 
             <Modal.Body>
@@ -19,28 +17,16 @@ const ModalRoom = props => {
                     newRoom={newRoom}
                     handleChange={handleChange}
                 />
-
             </Modal.Body>
 
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
+            <button type="button" className="btn btn-secondary" onClick={handleClose}><i class="fas fa-times"></i>&nbsp;Cancel</button>
 
-                <Button variant="primary" onClick={createRoom}>
-                    {editMode ? <button
-                        variant="success" size="sm"
-                        onClick={() => handleClickUpdateRoom()}
-                    >
-                        UPDATE
-        </button>
+                <div onClick={createRoom}>
+                    {editMode ? <button type="button" onClick={() => handleClickUpdateRoom()}><i class="fas fa-edit"></i>&nbsp;Update</button>
                         :
-                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewRoom()}><i className="fa fa-database">
-                        </i> &nbsp; Save</button>}
-                </Button>
-
-
-
+                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewRoom()}><i className="fa fa-database"></i>&nbsp;Save</button>}
+                </div>
             </Modal.Footer>
 
         </Modal>
