@@ -29,8 +29,8 @@ export default function ListCategory(props) {
                                 <td><img src={category.pictures} className="img-fluid" alt="" /></td>
                                 <td>{category.subCategories}</td>
                                 <td>
-                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditCategory(category._id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => handleClickDeleteCategory(category._id)}>Delete</button>
+                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditCategory(category._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
+                                    <button className="btn btn-danger" onClick={() => handleClickDeleteCategory(category._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         ))}

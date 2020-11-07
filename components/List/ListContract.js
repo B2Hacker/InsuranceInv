@@ -49,8 +49,8 @@ export default function ListContract(props) {
                                 <td>{contract.cost}</td>
                                 <td>{contract.paymentType}</td>
                                 <td>
-                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditContract(contract._id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => handleClickDeleteContract(contract._id)}>Delete</button>
+                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditContract(contract._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
+                                    <button className="btn btn-danger" onClick={() => handleClickDeleteContract(contract._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         ))}

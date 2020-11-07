@@ -26,7 +26,7 @@ const ModalRoom = props => {
                 <div onClick={createRoom}>
                     {editMode ? <button type="button" className="btn btn-success" onClick={() => handleClickUpdateRoom()}><i class="fas fa-edit"></i>&nbsp;Update</button>
                         :
-                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewRoom()}><i className="fa fa-database"></i>&nbsp;Save</button>}
+                        <button type="button" className="btn btn-success" onClick={() => handleClickOnCreateNewRoom()}><i class="fas fa-save"></i>&nbsp;Save</button>}
                 </div>
             </Modal.Footer>
 

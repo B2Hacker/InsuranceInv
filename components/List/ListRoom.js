@@ -29,8 +29,8 @@ export default function ListRoom(props) {
                                 <td><img src={room.pictures} className="img-fluid" alt="" /></td>
                                 <td>{room.location}</td>
                                 <td>
-                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditRoom(room._id)}>Edit</button>
-                                    <button className="btn btn-danger" onClick={() => handleClickDeleteRoom(room._id)}>Delete</button>
+                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditRoom(room._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
+                                    <button className="btn btn-danger" onClick={() => handleClickDeleteRoom(room._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         ))}
