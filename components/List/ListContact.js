@@ -42,7 +42,7 @@ export default function ListContact(props) {
                                 <td><img src={contact.pictures} className="img-fluid" alt="" /></td>
                                 <td>{contact.firstName}</td>
                                 <td>{contact.lastName}</td>
-                                <td>{contact.company}</td>
+                                <td>{contact.company && contact.company ? `${contact.company.name}` : 0}</td>
                                 <td>{contact.contactInfo.tel}</td>
                                 <td>{contact.contactInfo.tel2}</td>
                                 <td>{contact.contactInfo.email}</td>

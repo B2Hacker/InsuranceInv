@@ -1,10 +1,14 @@
+import styles from '../styles/Home.module.css';
+
 export default function Footer() {
     return (
-        <nav className="navbar navbar-light bg-success sticky-bottom">
-                    <p className="text-white">
-                        &copy;{new Date().getFullYear()} Insurance Information
-                    </p>
-        </nav>
+        <>
+            <div>
+                <div className={styles.footer}>
+                    <h5 className="text-light">&copy;{new Date().getFullYear()} Insurance Information</h5>
+                </div>
+            </div>
+        </>
     );
 }
 

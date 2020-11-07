@@ -32,7 +32,7 @@ export default function AddItem(props) {
                 <label htmlFor="multi-location">Location</label>
                 <select className="custom-select" id="multi-location"
                     onChange={handleChange()("location")}
-                    value={newItem.location || []}
+                    value={newItem.location ? newItem.location._id : []}
                 >
                     <option value="" disabled  >Select Location</option>
                     {allLocations.map(location => (
@@ -47,7 +47,7 @@ export default function AddItem(props) {
                 <label htmlFor="multi-room">Room</label>
                 <select className="custom-select" id="multi-room"
                     onChange={handleChange()("room")}
-                    value={newItem.room || []}
+                    value={newItem.room ? newItem.room._id : []}
                 >
                     <option value="" disabled  >Select Room</option>
                     {allRooms.map(room => (
@@ -62,7 +62,7 @@ export default function AddItem(props) {
                 <label htmlFor="multi-category">Category</label>
                 <select className="custom-select" id="multi-category"
                     onChange={handleChange()("category")}
-                    value={newItem.category || []}
+                    value={newItem.category ? newItem.category._id : []}
                 >
                     <option value="" disabled  >Select Category</option>
                     {allCategories.map(category => (
@@ -77,7 +77,7 @@ export default function AddItem(props) {
                 <label htmlFor="multi-condition">Condition</label>
                 <select className="custom-select" id="multi-condition"
                     onChange={handleChange()("condition")}
-                    value={newItem.condition || []}
+                    value={newItem.condition ? newItem.condition._id : []}
                 >
                     <option value="" disabled  >Select Condition</option>
                     {allConditions.map(condition => (
@@ -164,7 +164,7 @@ export default function AddItem(props) {
                 <label htmlFor="multi-company">Company</label>
                 <select className="custom-select" id="multi-company"
                     onChange={handleChange("purchaseInfo")("company")}
-                    value={newItem.purchaseInfo ? newItem.purchaseInfo.company : []}
+                    value={newItem.purchaseInfo && newItem.purchaseInfo.company ? newItem.purchaseInfo.company._id : []}
                 >
                     <option value="" disabled  >Select Company</option>
                     {allCompanies.map(company => (
@@ -187,11 +187,13 @@ export default function AddItem(props) {
                 />
             </div>
 
+            {/* `${ */}
+
             <div >
                 <label htmlFor="multi-contract">Contract</label>
                 <select className="custom-select" id="multi-contract"
                     onChange={handleChange("purchaseInfo")("contract")}
-                    value={newItem.purchaseInfo ? newItem.purchaseInfo.contract : []}
+                    value={newItem.purchaseInfo && newItem.purchaseInfo.contract ? newItem.purchaseInfo.contract._id : []}
                 >
                     <option value="" disabled  >Select Contract</option>
                     {allContracts.map(contract => (

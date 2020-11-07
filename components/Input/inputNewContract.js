@@ -32,7 +32,7 @@ export default function AddContract(props) {
                 <label htmlFor="multi-company">Company</label>
                 <select className="custom-select" id="multi-company"
                     onChange={handleChange()("company")}
-                    value={newContract.company || []}
+                    value={newContract.company ? newContract.company._id : []}
                 >
                     <option value="" disabled  >Select Company</option>
                     {allCompanies.map(company => (
@@ -47,7 +47,7 @@ export default function AddContract(props) {
                 <label htmlFor="multi-contact">Contact</label>
                 <select className="custom-select" id="multi-contact"
                     onChange={handleChange()("contact")}
-                    value={newContract.contact || []}
+                    value={newContract.contact ? newContract.contact._id : []}
                 >
                     <option value="" disabled  >Select Contact</option>
                     {allContacts.map(contact => (

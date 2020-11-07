@@ -27,10 +27,10 @@ export default function ListCategory(props) {
                                 <td>{category.name}</td>
                                 <td>{category.description}</td>
                                 <td><img src={category.pictures} className="img-fluid" alt="" /></td>
-                                <td>{category.subCategories}</td>
+                                <td>{category.subCategories && category.subCategories[0] ? `${category.subCategories[0].name}` : 0}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditCategory(category._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
-                                    <button className="btn btn-danger" onClick={() => handleClickDeleteCategory(category._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
+                                    <button className="btn btn-danger" onClick={() => handleClickDeleteCategory(category._id)}>Delete&nbsp;</button>
                                 </td>
                             </tr>
                         ))}

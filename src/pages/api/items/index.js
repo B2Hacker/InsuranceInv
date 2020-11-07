@@ -12,7 +12,15 @@ export default async (req, res) => {
 switch (method) {
     case 'GET':
         try {
-            const items = await Item.find({}).populate("room").populate("location").populate("category");
+            const items = await Item
+            .find({})
+            .populate("location")
+            .populate("room")
+            .populate("category")
+            .populate("condition")
+            .populate("purchaseInfo.company")
+            .populate("purchaseInfo.contract");
+
             res.status(200).json({success: true, data: items});
 
         } catch (error) {

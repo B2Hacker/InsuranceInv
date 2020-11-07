@@ -9,7 +9,7 @@ export default async (req, res) => {
 switch (method) {
     case 'GET':
         try {
-            const contact = await Contact.findById(id);
+            const contact = await Contact.findById(id).populate("company");
 
             if (!contact) {
                 return res.status(400).json({success: false});

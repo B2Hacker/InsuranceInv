@@ -1,5 +1,6 @@
 import dbConnect from '../../../../utils/dbConnect';
 import Category from '../../../models/Category';
+import SubCategory from '../../../models/SubCategory';
 
 dbConnect();
 
@@ -9,7 +10,7 @@ export default async (req, res) => {
 switch (method) {
     case 'GET':
         try {
-            const category = await Category.findById(id).populate("subcategories");
+            const category = await Category.findById(id).populate("subCategories");
 
             if (!category) {
                 return res.status(400).json({success: false});

@@ -56,7 +56,7 @@ export default function AddContact(props) {
                 <label htmlFor="multi-company">Company</label>
                 <select className="custom-select" id="multi-company"
                     onChange={handleChange()("company")}
-                    value={newContact.company || []}
+                    value={newContact.company ? newContact.company._id : []}
                 >
                     <option value="" disabled  >Select Company</option>
                     {allCompanies.map(company => (

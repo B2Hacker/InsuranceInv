@@ -9,7 +9,7 @@ export default async (req, res) => {
 switch (method) {
     case 'GET':
         try {
-            const rooms = await Room.find({});
+            const rooms = await Room.find({}).populate("location");
             res.status(200).json({success: true, data: rooms});
 
         } catch (error) {

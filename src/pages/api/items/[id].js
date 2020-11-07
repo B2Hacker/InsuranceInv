@@ -14,7 +14,14 @@ export default async (req, res) => {
 switch (method) {
     case 'GET':
         try {
-            const item = await Item.findById(id).populate("room").populate("location").populate("category").populate("condition").populate("purchaseInfo.company").populate("purchaseInfo.contract");
+            const item = await Item
+            .findById(id)
+            .populate("location")
+            .populate("room")
+            .populate("category")
+            .populate("condition")
+            .populate("purchaseInfo.company")
+            .populate("purchaseInfo.contract");
 
             if (!item) {
                 return res.status(400).json({success: false});

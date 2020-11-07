@@ -32,7 +32,7 @@ export default function AddRoom(props) {
                 <label htmlFor="multi-location">Location</label>
                 <select className="custom-select" id="multi-location"
                     onChange={handleChange()("location")}
-                    value={newRoom.location || []}
+                    value={newRoom.location ? newRoom.location[0]._id : []}
                 >
                     <option value="" disabled  >Select location</option>
                     {allLocations.map(location => (

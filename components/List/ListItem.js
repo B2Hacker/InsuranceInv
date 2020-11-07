@@ -41,20 +41,20 @@ export default function ListItem(props) {
                                 <td>{item.name}</td>
                                 <td>{item.description}</td>
                                 <td><img src={item.pictures} className="img-fluid" alt="" /></td>
-                                <td>{item.location ? item.location.name : ""}</td>
-                                <td>{item.room ? item.room.name : ""}</td>
-                                <td>{item.category ? item.category.name : ""}</td>
-                                <td>{item.condition}</td>
+                                <td>{item.location ? `${item.location.name}` : ""}</td>
+                                <td>{item.room ? `${item.room.name}` : ""}</td>
+                                <td>{item.category ? `${item.category.name}` : ""}</td>
+                                <td>{item.condition ? `${item.condition.name}` : ""}</td>
                                 <td>{item.estimatedValue}</td>
                                 <td>{item.model}</td>
                                 <td>{item.brand}</td>
                                 <td>{item.serialNumber}</td>
                                 <td>{item.notes}</td>
                                 <td>{item.purchaseInfo.purchaseDate}</td>
-                                <td>{item.purchaseInfo.company}</td>
+                                <td>{item.purchaseInfo.company ? `${item.purchaseInfo.company.name}` : ""}</td>
                                 <td>{item.purchaseInfo.cost}</td>
                                 {/* <td>{item.purchaseInfo.waranty}</td> */}
-                                <td>{item.purchaseInfo.contract}</td>
+                                <td>{item.purchaseInfo.contract ? `${item.purchaseInfo.contract.name}` : ""}</td>
                                 <td>{item.purchaseInfo.purchaseNotes}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditItem(item._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>

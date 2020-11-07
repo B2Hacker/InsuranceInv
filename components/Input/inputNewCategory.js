@@ -34,7 +34,7 @@ export default function AddCategory(props) {
                 <label htmlFor="multi-subcategories">Sub Categories</label>
                 <select className="custom-select" id="multi-subcategories"
                     onChange={handleChange()("subCategories")}
-                    value={newCategory.subCategories || []}
+                    value={newCategory.subCategories ? newCategory.subCategories[0]._id : []}
                 >
                     <option value="" disabled  >Select subCategory</option>
                     {allSubCategories.map(subCategory => (
