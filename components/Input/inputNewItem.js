@@ -163,8 +163,8 @@ export default function AddItem(props) {
             <div >
                 <label htmlFor="multi-company">Company</label>
                 <select className="custom-select" id="multi-company"
-                    onChange={handleChange()("company")}
-                    value={newItem.company || []}
+                    onChange={handleChange("purchaseInfo")("company")}
+                    value={newItem.purchaseInfo ? newItem.purchaseInfo.company : []}
                 >
                     <option value="" disabled  >Select Company</option>
                     {allCompanies.map(company => (
@@ -190,8 +190,8 @@ export default function AddItem(props) {
             <div >
                 <label htmlFor="multi-contract">Contract</label>
                 <select className="custom-select" id="multi-contract"
-                    onChange={handleChange()("contract")}
-                    value={newItem.contract || []}
+                    onChange={handleChange("purchaseInfo")("contract")}
+                    value={newItem.purchaseInfo ? newItem.purchaseInfo.contract : []}
                 >
                     <option value="" disabled  >Select Contract</option>
                     {allContracts.map(contract => (
