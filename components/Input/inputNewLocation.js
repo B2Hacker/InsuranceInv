@@ -104,23 +104,3 @@ export default function AddLocation(props) {
         </div>
     )
 }
-
-AddLocation.defaultProps = {
-    newLocation: {
-        name: "",
-        description: "",
-        isActive: true,
-        user: "",
-        pictures: "",
-        files: "",
-        status: "",
-        address: {
-            streetNumber: "",
-            street: "",
-            street2: "",
-            city: "",
-            province: "",
-            country: ""
-        }
-    }
-}

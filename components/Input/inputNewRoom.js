@@ -46,12 +46,3 @@ export default function AddRoom(props) {
         </div>
     )
 }
-
-AddRoom.defaultProps = {
-    newRoom: {
-        name: "",
-        description: "",
-        pictures: "",
-        location: ""
-    }
-}

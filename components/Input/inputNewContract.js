@@ -157,23 +157,3 @@ export default function AddContract(props) {
         </div>
     )
 }
-
-AddContract.defaultProps = {
-    newContract: {
-        name: "",
-        description: "",
-        pictures: "",
-        files: "",
-        company: "",
-        contact: "",
-        contractNumber: "",
-        type: "",
-        Emergency: "",
-        dateStart: "",
-        dateEnd: "",
-        dateRenewal: "",
-        dateRenewalReminder: "",
-        cost: "",
-        paymentType: ""
-    }
-}

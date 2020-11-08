@@ -30,10 +30,3 @@ export default function AddSubCategory(props) {
         </div>
     )
 }
-
-AddSubCategory.defaultProps = {
-    newSubCategory: {
-        name: "",
-        description: "",
-    }
-}

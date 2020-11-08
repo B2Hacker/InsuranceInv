@@ -204,28 +204,3 @@ export default function AddContact(props) {
         </div>
     )
 }
-
-AddContact.defaultProps = {
-    newContact: {
-        name: "",
-        description: "",
-        pictures: "",
-        firstName: "",
-        lastName: "",
-        contactInfo: {
-            tel: "",
-            tel2: "",
-            email: "",
-            email2: "",
-            url: ""
-        },
-        address: {
-            streetNumber: "",
-            street: "",
-            street2: "",
-            city: "",
-            province: "",
-            country: "",
-        }
-    }
-}

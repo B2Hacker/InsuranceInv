@@ -38,8 +38,8 @@ export default function ListContract(props) {
                                 <td>{contract.description}</td>
                                 <td><img src={contract.pictures} className="img-fluid" alt="" /></td>
                                 <td>{contract.files}</td>
-                                <td>{contract.company && contract.company ? `${contract.company.name}` : 0}</td>
-                                <td>{contract.contact && contract.contact ? `${contract.contact.name}` : 0}</td>
+                                <td>{contract.company ? `${contract.company.name}` : ""}</td>
+                                <td>{contract.contact ? `${contract.contact.name}` : ""}</td>
                                 <td>{contract.contractNumber}</td>
                                 <td>{contract.type}</td>
                                 <td>{contract.Emergency}</td>

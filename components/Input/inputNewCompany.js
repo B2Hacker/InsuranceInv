@@ -177,27 +177,3 @@ export default function AddCompany(props) {
         </div>
     )
 }
-
-AddCompany.defaultProps = {
-    newCompany: {
-        name: "",
-        description: "",
-        pictures: "",
-        companyFullName: "",
-        contactInfo: {
-            tel: "",
-            tel2: "",
-            email: "",
-            email2: "",
-            url: ""
-        },
-        address: {
-            streetNumber: "",
-            street: "",
-            street2: "",
-            city: "",
-            province: "",
-            country: "",
-        }
-    }
-}

@@ -30,10 +30,3 @@ export default function AddCondition(props) {
         </div>
     )
 }
-
-AddCondition.defaultProps = {
-    newCondition: {
-        name: "",
-        description: "",
-    }
-}

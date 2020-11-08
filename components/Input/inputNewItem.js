@@ -187,8 +187,6 @@ export default function AddItem(props) {
                 />
             </div>
 
-            {/* `${ */}
-
             <div >
                 <label htmlFor="multi-contract">Contract</label>
                 <select className="custom-select" id="multi-contract"
@@ -204,18 +202,6 @@ export default function AddItem(props) {
                 </select>
             </div>
 
-            {/* <div >
-                <label>Warranty</label>
-                <input
-                    type="checkbox"
-                    size="small"
-                    id="waranty-input"
-                    label="Waranty"
-                    onChange={handleChange("purchaseInfo")("waranty")}
-                    value={newItem.purchaseInfo ? newItem.purchaseInfo.waranty : ""}
-                />
-            </div> */}
-
             <div >
                 <label>Purchase Notes</label>
                 <input
@@ -229,29 +215,4 @@ export default function AddItem(props) {
             </div>
         </div>
     )
-}
-
-AddItem.defaultProps = {
-    newItem: {
-        name: "",
-        description: "",
-        pictures: "",
-        location: "",
-        room: "",
-        category: "",
-        condition: "",
-        estimatedValue: "",
-        model: "",
-        brand: "",
-        serialNumber: "",
-        notes: "",
-        purchaseInfo: {
-            purchaseDate: "",
-            company: "",
-            cost: "",
-            waranty: "",
-            contract: "",
-        purchaseNotes: ""
-        }
-    }
 }
