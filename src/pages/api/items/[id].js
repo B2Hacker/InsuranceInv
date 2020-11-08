@@ -24,7 +24,7 @@ switch (method) {
             .populate("purchaseInfo.contract");
 
             if (!item) {
-                return res.status(400).json({success: false});
+                return res.status(400).json({success: false, message: error.message});
             }
             res.status(200).json({success: true, data: item});
 

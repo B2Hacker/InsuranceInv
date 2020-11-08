@@ -51,10 +51,10 @@ export default function ListItem(props) {
                                 <td>{item.serialNumber}</td>
                                 <td>{item.notes}</td>
                                 <td>{item.purchaseInfo.purchaseDate}</td>
-                                <td>{item.purchaseInfo.company ? `${item.purchaseInfo.company.name}` : ""}</td>
+                                <td>{item.purchaseInfo && item.purchaseInfo.company ? `${item.purchaseInfo.company.name}` : ""}</td>
                                 <td>{item.purchaseInfo.cost}</td>
                                 {/* <td>{item.purchaseInfo.waranty}</td> */}
-                                <td>{item.purchaseInfo.contract ? `${item.purchaseInfo.contract.name}` : ""}</td>
+                                <td>{item.purchaseInfo && item.purchaseInfo.contract ? `${item.purchaseInfo.contract.name}` : ""}</td>
                                 <td>{item.purchaseInfo.purchaseNotes}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditItem(item._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
