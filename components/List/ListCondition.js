@@ -24,7 +24,7 @@ export default function ListCondition(props) {
                                 <td>{condition.description}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditCondition(condition._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
-                                    <button className="btn btn-danger" onClick={() => handleClickDeleteCondition(condition._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
+                                    <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteCondition(condition._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         ))}

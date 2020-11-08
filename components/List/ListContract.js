@@ -38,8 +38,8 @@ export default function ListContract(props) {
                                 <td>{contract.description}</td>
                                 <td><img src={contract.pictures} className="img-fluid" alt="" /></td>
                                 <td>{contract.files}</td>
-                                <td>{contract.company ? `${contract.company.name}` : ""}</td>
-                                <td>{contract.contact ? `${contract.contact.name}` : ""}</td>
+                                <td>{contract.company ? contract.company.name : ""}</td>
+                                <td>{contract.contact ? contract.contact.name : ""}</td>
                                 <td>{contract.contractNumber}</td>
                                 <td>{contract.type}</td>
                                 <td>{contract.Emergency}</td>
@@ -50,7 +50,7 @@ export default function ListContract(props) {
                                 <td>{contract.paymentType}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditContract(contract._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
-                                    <button className="btn btn-danger" onClick={() => handleClickDeleteContract(contract._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
+                                    <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteContract(contract._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         ))}

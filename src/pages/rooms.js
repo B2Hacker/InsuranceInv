@@ -103,7 +103,6 @@ export default function roomsPage() {
         setNewRoom(true);
         setShowElements(true);
 
-        handleCloseModal()
         getRooms();
     };
 

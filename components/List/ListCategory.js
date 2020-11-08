@@ -30,7 +30,7 @@ export default function ListCategory(props) {
                                 <td>{category.subCategories && category.subCategories[0] ? `${category.subCategories[0].name}` : ""}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditCategory(category._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
-                                    <button className="btn btn-danger" onClick={() => handleClickDeleteCategory(category._id)}>Delete&nbsp;</button>
+                                    <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteCategory(category._id)}>Delete&nbsp;</button>
                                 </td>
                             </tr>
                         ))}

@@ -39,20 +39,20 @@ export default function ListCompany(props) {
                                 <td>{company.description}</td>
                                 <td><img src={company.pictures} className="img-fluid" alt="" /></td>
                                 <td>{company.companyFullName}</td>
-                                <td>{company.contactInfo.tel}</td>
-                                <td>{company.contactInfo.tel2}</td>
-                                <td>{company.contactInfo.email}</td>
-                                <td>{company.contactInfo.email2}</td>
-                                <td>{company.contactInfo.url}</td>
-                                <td>{company.address.streetNumber}</td>
-                                <td>{company.address.street}</td>
-                                <td>{company.address.street2}</td>
-                                <td>{company.address.city}</td>
-                                <td>{company.address.province}</td>
-                                <td>{company.address.country}</td>
+                                <td>{company.contactInfo ? company.contactInfo.tel : ""}</td>
+                                <td>{company.contactInfo ? company.contactInfo.tel2 : ""}</td>
+                                <td>{company.contactInfo ? company.contactInfo.email : ""}</td>
+                                <td>{company.contactInfo ? company.contactInfo.email2 : ""}</td>
+                                <td>{company.contactInfo ? company.contactInfo.url : ""}</td>
+                                <td>{company.address ? company.address.streetNumber : ""}</td>
+                                <td>{company.address ? company.address.street : ""}</td>
+                                <td>{company.address ? company.address.street2 : ""}</td>
+                                <td>{company.address ? company.address.city : ""}</td>
+                                <td>{company.address ? company.address.province : ""}</td>
+                                <td>{company.address ? company.address.country : ""}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditCompany(company._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
-                                    <button className="btn btn-danger" onClick={() => handleClickDeleteCompany(company._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
+                                    <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteCompany(company._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         ))}

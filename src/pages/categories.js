@@ -104,7 +104,9 @@ export default function categoriesPage() {
         deleteCategory(categoryID);
         setNewCategory(true);
         setShowElements(true);
+        
         getCategories();
+        getSubCategories();
     };
 
     //SUBCATEGORIES
@@ -132,6 +134,7 @@ export default function categoriesPage() {
         updateSubCategory(newSubCategory).then(() => {
             handleCloseModalSubCategory()
             getSubCategories();
+            getCategories();
         })
     }
 
@@ -186,7 +189,8 @@ export default function categoriesPage() {
         deleteSubCategory(subcategoryID);
         setNewSubCategory(true);
         setShowElements(true);
-        
+
+        getCategories();
         getSubCategories();
     };
 
