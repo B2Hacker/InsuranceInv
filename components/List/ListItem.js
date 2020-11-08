@@ -57,8 +57,8 @@ export default function ListItem(props) {
                                 <td>{item.purchaseInfo && item.purchaseInfo.contract ? `${item.purchaseInfo.contract.name}` : ""}</td>
                                 <td>{item.purchaseInfo.purchaseNotes}</td>
                                 <td>
-                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditItem(item._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
-                                    <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteItem(item._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
+                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditItem(item._id)}>Edit&nbsp;<i className="fas fa-edit"></i></button>
+                                    <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteItem(item._id)}>Delete&nbsp;<i className="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         ))}

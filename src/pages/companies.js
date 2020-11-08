@@ -117,7 +117,7 @@ export default function companiesPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddCompany()}
                         >
-                            <i class="fas fa-plus-square"></i>&nbsp;Add new Company</button>
+                            <i className="fas fa-plus-square"></i>&nbsp;Add new Company</button>
                         :
                         null
                     }

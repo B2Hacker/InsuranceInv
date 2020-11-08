@@ -140,7 +140,7 @@ export default function contractsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddContract()}
                         >
-                            <i class="fas fa-plus-square"></i>&nbsp;Add new Contract</button>
+                            <i className="fas fa-plus-square"></i>&nbsp;Add new Contract</button>
                         :
                         null
                     }

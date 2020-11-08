@@ -189,7 +189,7 @@ export default function itemsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddItem()}
                         >
-                            <i class="fas fa-plus-square"></i>&nbsp;Add new Item</button>
+                            <i className="fas fa-plus-square"></i>&nbsp;Add new Item</button>
                         :
                         null
                     }

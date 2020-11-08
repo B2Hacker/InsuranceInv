@@ -1,5 +1,6 @@
-import dbConnect from "../../../../utils/dbConnect";
+import { dbConnect } from "../../../../utils/dbConnect"
 import Room from "../../../models/Room";
+import Location from "../../../models/Location";
 
 dbConnect();
 

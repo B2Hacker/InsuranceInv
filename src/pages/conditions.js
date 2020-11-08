@@ -118,7 +118,7 @@ export default function conditionsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddCondition()}
                         >
-                            <i class="fas fa-plus-square"></i>&nbsp;Add new Condition</button>
+                            <i className="fas fa-plus-square"></i>&nbsp;Add new Condition</button>
                         :
                         null
                     }

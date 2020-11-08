@@ -9,7 +9,7 @@ import Room from '../src/models/Room';
 import Condition from '../src/models/Condition';
 import Item from '../src/models/Item';
 import _ from "lodash";
-import dbConnect from './dbConnect';
+import { dbConnect } from './dbConnect';
 
 dbConnect();
 

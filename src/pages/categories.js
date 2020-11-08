@@ -229,7 +229,7 @@ export default function categoriesPage() {
                         <button
                             className="btn btn-success"
                             onClick={() => handleClickAddCategory()}>
-                            <i class="fas fa-plus-square"></i>&nbsp;Add new Category</button>
+                            <i className="fas fa-plus-square"></i>&nbsp;Add new Category</button>
                         :
                         null
                     }
@@ -253,7 +253,7 @@ export default function categoriesPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddSubCategory()}
                         >
-                            <i class="fas fa-plus-square"></i>&nbsp;Add new SubCategory</button>
+                            <i className="fas fa-plus-square"></i>&nbsp;Add new SubCategory</button>
                         :
                         null
                     }

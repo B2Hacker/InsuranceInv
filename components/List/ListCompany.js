@@ -51,8 +51,8 @@ export default function ListCompany(props) {
                                 <td>{company.address ? company.address.province : ""}</td>
                                 <td>{company.address ? company.address.country : ""}</td>
                                 <td>
-                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditCompany(company._id)}>Edit&nbsp;<i class="fas fa-edit"></i></button>
-                                    <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteCompany(company._id)}>Delete&nbsp;<i class="fas fa-trash-alt"></i></button>
+                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditCompany(company._id)}>Edit&nbsp;<i className="fas fa-edit"></i></button>
+                                    <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteCompany(company._id)}>Delete&nbsp;<i className="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         ))}

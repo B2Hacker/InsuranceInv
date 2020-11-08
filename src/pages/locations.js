@@ -118,7 +118,7 @@ export default function locationsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddLocation()}
                         >
-                            <i class="fas fa-plus-square"></i>&nbsp;Add new location</button>
+                            <i className="fas fa-plus-square"></i>&nbsp;Add new location</button>
                         :
                         null
                     }

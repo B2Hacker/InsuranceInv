@@ -130,7 +130,7 @@ export default function contactsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddContact()}
                         >
-                            <i class="fas fa-plus-square"></i>&nbsp;Add new Contact</button>
+                            <i className="fas fa-plus-square"></i>&nbsp;Add new Contact</button>
                         :
                         null
                     }

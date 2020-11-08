@@ -130,7 +130,7 @@ export default function roomsPage() {
                             className="btn btn-success"
                             onClick={() => handleClickAddRoom()}
                         >
-                            <i class="fas fa-plus-square"></i>&nbsp;Add new Room</button>
+                            <i className="fas fa-plus-square"></i>&nbsp;Add new Room</button>
                         :
                         null
                     }
