@@ -5,7 +5,6 @@ import { viewAllCategories, viewCategory } from "../../src/lib/apiCategory";
 import { viewAllConditions, viewCondition } from "../../src/lib/apiCondition";
 import { viewAllCompanies, viewCompany } from "../../src/lib/apiCompany";
 import { viewAllContracts, viewContract } from "../../src/lib/apiContract";
-import { viewAllContacts, viewContact } from "../../src/lib/apiContact";
 import ListItem from "../../components/List/ListItem";
 import styles from '../../styles/Home.module.css';
 import ModalItem from '../../components/Modal/ModalItem';
@@ -21,7 +20,6 @@ export default function itemsPage() {
     const [allCategories, setAllCategories] = React.useState([]);
     const [allConditions, setAllConditions] = React.useState([]);
     const [allCompanies, setAllCompanies] = React.useState([]);
-    const [allContacts, setAllContacts] = React.useState([]);
     const [allContracts, setAllContracts] = React.useState([]);
     const [newItem, setNewItem] = React.useState({});
 
@@ -32,7 +30,6 @@ export default function itemsPage() {
         getCategories();
         getConditions();
         getCompanies();
-        getContacts();
         getContracts();
         getItems();
     }, []);
@@ -70,12 +67,6 @@ export default function itemsPage() {
     const getCompanies = () => {
         viewAllCompanies().then(allItems => {
             setAllCompanies(allItems);
-        })
-    };
-
-    const getContacts = () => {
-        viewAllContacts().then(allItems => {
-            setAllContacts(allItems);
         })
     };
 
