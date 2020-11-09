@@ -32,12 +32,12 @@ export default function ListLocation(props) {
                                 <td>{location.name}</td>
                                 <td>{location.description}</td>
                                 <td><img src={location.pictures} className="img-fluid" alt="" /></td>
-                                <td>{location.address.streetNumber}</td>
-                                <td>{location.address.street}</td>
-                                <td>{location.address.street2}</td>
-                                <td>{location.address.city}</td>
-                                <td>{location.address.province}</td>
-                                <td>{location.address.country}</td>
+                                <td>{location.address ? location.address.streetNumber : ""}</td>
+                                <td>{location.address ? location.address.street : ""}</td>
+                                <td>{location.address ? location.address.street2 : ""}</td>
+                                <td>{location.address ? location.address.city : ""}</td>
+                                <td>{location.address ? location.address.province : ""}</td>
+                                <td>{location.address ? location.address.country : ""}</td>
                                 <td>
                                     <button type="button" className="btn btn-primary" onClick={() => handleClickEditLocation(location._id)}>Edit&nbsp;<i className="fas fa-edit"></i></button>
                                     <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteLocation(location._id)}>Delete&nbsp;<i className="fas fa-trash-alt"></i></button>
