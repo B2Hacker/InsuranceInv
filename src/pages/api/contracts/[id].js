@@ -11,8 +11,7 @@ switch (method) {
         try {
             const contract = await Contract
             .findById(id)
-            .populate("company")
-            .populate("contact");
+            .populate(["company", "contact"])
 
             if (!contract) {
                 return res.status(400).json({success: false});

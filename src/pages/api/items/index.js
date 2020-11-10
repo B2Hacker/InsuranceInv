@@ -16,12 +16,7 @@ switch (method) {
         try {
             const items = await Item
             .find({})
-            .populate("location")
-            .populate("room")
-            .populate("category")
-            .populate("condition")
-            .populate("purchaseInfo.company")
-            .populate("purchaseInfo.contract");
+            .populate(["location", "room", "category", "condition", "purchaseInfo.company", "purchaseInfo.contract"])
 
             res.status(200).json({success: true, data: items});
 
