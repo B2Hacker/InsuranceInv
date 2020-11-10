@@ -95,7 +95,7 @@ export default function locationsPage() {
         setShowElements(true);
         
         getLocations();
-        getLocations();
+        handleCloseModal();
     };
 
     return (
