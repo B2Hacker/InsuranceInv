@@ -93,6 +93,8 @@ export default function locationsPage() {
         deleteLocation(locationID);
         setNewLocation(true);
         setShowElements(true);
+        
+        getLocations();
     };
 
     return (
