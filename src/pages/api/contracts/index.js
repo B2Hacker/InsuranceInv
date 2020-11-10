@@ -11,7 +11,7 @@ switch (method) {
         try {
             const contracts = await Contract
             .find({})
-            .populate(["company", "contact"])
+            .populate("company", "contact")
             
             res.status(200).json({success: true, data: contracts});
 
