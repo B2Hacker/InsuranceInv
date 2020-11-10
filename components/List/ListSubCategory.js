@@ -36,7 +36,9 @@ export default function ListSubCategory(props) {
         </>
     ) : (
             <>
-                <div className="spinner-border"></div>
+                <div className={styles.container}>
+                    <div className="spinner-border"></div>
+                </div>
             </>
         );
 }

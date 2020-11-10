@@ -5,7 +5,6 @@ import Location from "../../../models/Location";
 import Category from "../../../models/Category";
 import Contract from "../../../models/Contract";
 import Company from "../../../models/Company";
-import Contact from "../../../models/Contact";
 
 dbConnect();
 
@@ -22,8 +21,7 @@ switch (method) {
             .populate("category")
             .populate("condition")
             .populate("purchaseInfo.company")
-            .populate("purchaseInfo.contract")
-            .populate("purchaseInfo.contract.contact");
+            .populate("purchaseInfo.contract");
 
             res.status(200).json({success: true, data: items});
 

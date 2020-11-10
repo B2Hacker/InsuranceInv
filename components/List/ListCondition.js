@@ -36,7 +36,9 @@ export default function ListCondition(props) {
         </>
     ) : (
             <>
-                <div className="spinner-border"></div>
+                <div className={styles.container}>
+                    <div className="spinner-border"></div>
+                </div>
             </>
         );
 }

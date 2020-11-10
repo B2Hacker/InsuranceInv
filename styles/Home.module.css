@@ -2,7 +2,7 @@
   min-height: 100vh;
   padding: 0 3.5rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: center;
   justify-content: center;
 }
 

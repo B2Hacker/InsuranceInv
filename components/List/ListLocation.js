@@ -52,7 +52,9 @@ export default function ListLocation(props) {
         </>
     ) : (
             <>
-                <div className="spinner-border"></div>
+                <div className={styles.container}>
+                    <div className="spinner-border"></div>
+                </div>
             </>
         );
 }

@@ -70,7 +70,9 @@ export default function ListItem(props) {
         </>
     ) : (
             <>
-                <div className="spinner-border"></div>
+                <div className={styles.container}>
+                    <div className="spinner-border"></div>
+                </div>
             </>
         );
 }

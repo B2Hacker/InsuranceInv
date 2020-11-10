@@ -21,7 +21,7 @@ switch (method) {
             .populate("category")
             .populate("condition")
             .populate("purchaseInfo.company")
-            .populate("purchaseInfo.contract");
+            .populate("purchaseInfo.contract")
 
             if (!item) {
                 return res.status(400).json({success: false, message: error.message});
