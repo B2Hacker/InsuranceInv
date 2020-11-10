@@ -108,11 +108,11 @@ export default function conditionsPage() {
                 editMode={editMode}
             />
             <div >
-                <div className={styles.main}>
+                <div>
                     <h3>Conditions</h3>
                 </div>
 
-                <div className={styles.main}>
+                <div>
                     {showElements ?
                         <button
                             className="btn btn-success"

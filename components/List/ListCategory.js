@@ -11,31 +11,33 @@ export default function ListCategory(props) {
         <>
 
             <div className={styles.container}>
-                <table className="table table-bordered" >
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Image</th>
-                            <th>SubCategory</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {allCategories.map(category => (
-                            <tr key={category._id}>
-                                <td>{category.name}</td>
-                                <td>{category.description}</td>
-                                <td><img src={category.pictures} className="img-fluid" alt="" /></td>
-                                <td>{category.subCategories && category.subCategories[0] ? `${category.subCategories[0].name}` : ""}</td>
-                                <td>
-                                    <button type="button" className="btn btn-primary" onClick={() => handleClickEditCategory(category._id)}>Edit&nbsp;<i className="fas fa-edit"></i></button>
-                                    <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteCategory(category._id)}>Delete&nbsp;</button>
-                                </td>
+                <div className="table-responsive">
+                    <table className="datatable table-bordered table-sm table-hover" >
+                        <thead className="bg-success">
+                            <tr className="text-white">
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>SubCategory</th>
+                                <th>Action</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {allCategories.map(category => (
+                                <tr key={category._id}>
+                                    <td>{category.name}</td>
+                                    <td>{category.description}</td>
+                                    <td><img src={category.pictures} className="img-fluid" alt="" /></td>
+                                    <td>{category.subCategories && category.subCategories[0] ? `${category.subCategories[0].name}` : ""}</td>
+                                    <td>
+                                        <button type="button" className="btn btn-primary" onClick={() => handleClickEditCategory(category._id)}>Edit&nbsp;<i className="fas fa-edit"></i></button>
+                                        <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteCategory(category._id)}>Delete&nbsp;</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </>
     ) : (
