@@ -16,7 +16,7 @@ switch (method) {
         try {
             const item = await Item
             .findById(id)
-            .populate(["location", "room", "category", "condition", "purchaseInfo.contract", "purchaseInfo.company"])
+            .populate(["location", "room", "category", "condition", "purchaseInfo.company", "purchaseInfo.contract"])
 
             if (!item) {
                 return res.status(400).json({success: false, message: error.message});
