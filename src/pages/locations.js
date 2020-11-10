@@ -82,7 +82,6 @@ export default function locationsPage() {
             setNewLocation(location);
 
             getLocations();
-            getLocations();
         })
     };
 
@@ -94,7 +93,8 @@ export default function locationsPage() {
         deleteLocation(locationID);
         setNewLocation(true);
         setShowElements(true);
-
+        
+        getLocations();
         getLocations();
     };
 
