@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Company = require('./Company');
 
 const ContractSchema = new mongoose.Schema({
     name: {type: String, required: true, unique: true, trim: true},
@@ -7,7 +8,7 @@ const ContractSchema = new mongoose.Schema({
     files: {type: Array, default: []},
     company: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Company"
+        ref: Company
     },
     contact: {
         type: mongoose.Schema.Types.ObjectId,
