@@ -91,7 +91,7 @@ export default function locationsPage() {
         setAllLocations(borrandoLocation)
 
         deleteLocation(locationID);
-        setNewLocation(true);
+        setNewLocation(location);
         setShowElements(true);
         
         getLocations();
