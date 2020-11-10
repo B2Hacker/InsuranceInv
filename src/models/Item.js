@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Condition = require('./Condition');
 
 const ItemSchema = new mongoose.Schema({
     name: {type: String, required: true, unique: true, trim: true},
@@ -18,7 +19,7 @@ const ItemSchema = new mongoose.Schema({
     },
     condition: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Condition"
+        ref: Condition
     },
     estimatedValue: {type: Number, trim: true},
     model: {type: String, trim: true},
