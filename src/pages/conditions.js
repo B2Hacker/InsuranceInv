@@ -2,6 +2,7 @@ import { viewAllConditions, viewCondition, createCondition, updateCondition, del
 import ListCondition from "../../components/List/ListCondition";
 import styles from '../../styles/Home.module.css';
 import ModalCondition from '../../components/Modal/ModalCondition';
+import { get } from "mongoose";
 
 export default function conditionsPage() {
 
@@ -83,16 +84,10 @@ export default function conditionsPage() {
         })
     };
 
-    const handleClickDeleteCondition = conditionID => {
-        const borrandoCondition = allConditions.filter((condition) => condition.conditionID !== conditionID);
-        console.log("DELETING", conditionID);
-        setAllConditions(borrandoCondition)
-
-        deleteCondition(conditionID);
-        setNewCondition(true);
-        setShowElements(true);
-
+    const handleClickDeleteCondition = (id) => {
+        deleteCondition(id);
         getConditions();
+
     };
 
     return (
