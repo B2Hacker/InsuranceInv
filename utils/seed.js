@@ -218,7 +218,7 @@ export const seedContract = async () => {
 
 export const seedLocation = async () => {
     try {
-        const loop = 5;
+        const loop = 15;
         const locations = [];
 
         for (let i = 0; i < loop; i++) {
