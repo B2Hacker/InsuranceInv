@@ -86,7 +86,7 @@ export default function locationsPage() {
     };
 
     const handleClickDeleteLocation = locationID => {
-        const borrandoLocation = allLocations.filter((location) => location.locationID !== locationID);
+        const borrandoLocation = allLocations.filter((location) => location._id !== locationID);
         console.log("DELETING", locationID);
         setAllLocations(borrandoLocation)
 
@@ -95,8 +95,9 @@ export default function locationsPage() {
         setShowElements(true);
         
         getLocations();
-        handleCloseModal();
+
     };
+
 
     return (
         <div >
