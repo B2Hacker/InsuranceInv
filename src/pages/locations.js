@@ -85,11 +85,14 @@ export default function locationsPage() {
         })
     };
 
-    const handleClickDeleteLocation = (locationID) => {
-        deleteLocation(locationID);
+    const handleClickDeleteLocation = locationID => {
+        viewLocation(locationID).then(location => {
+        deleteLocation(location);
         getLocations();
     };
 
+    const handleClickDeleteCondition = conditionID => {
+        getCondition(conditionID).then(condition => {
 
     return (
         <div >
