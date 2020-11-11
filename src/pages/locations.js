@@ -8,7 +8,7 @@ export default function locationsPage() {
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
-    const [allLocations, setAllLocations] = React.useState([]);
+    const [allLocations, setAllLocations] = React.useState({});
     const [newLocation, setNewLocation] = React.useState({});
 
 

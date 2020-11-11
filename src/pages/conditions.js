@@ -12,6 +12,8 @@ export default function conditionsPage() {
     const [allConditions, setAllConditions] = React.useState([]);
     const [newCondition, setNewCondition] = React.useState({});
 
+    const [showDeleteModal, setShowDeleteModal] = React.useState(false);
+
 
     React.useEffect(() => getConditions(), []);
 
@@ -84,11 +86,22 @@ export default function conditionsPage() {
         })
     };
 
-    const handleClickDeleteCondition = (id) => {
-        deleteCondition(id);
-        getConditions();
+    const handleClickDeleteCondition = conditionID => {
+        viewCondition(conditionID).then(condition => {
+            console.log("FOUND IT", condition);
+            setShowDeleteModal(true);
 
+        })
     };
+
+
+    const DeleteConditionOnClick = conditionID => {
+        viewCondition(conditionID).then(condition => {
+            deleteCondition(conditionID);
+            setNewCondition(condition);
+            getConditions();
+        })
+    }
 
     return (
         <div >
@@ -124,6 +137,8 @@ export default function conditionsPage() {
                         allConditions={allConditions}
                         handleClickEditCondition={handleClickEditCondition}
                         handleClickDeleteCondition={handleClickDeleteCondition}
+                        open={showDeleteModal}
+                        DeleteConditionOnClick={DeleteConditionOnClick}
                     />
                 </div>
             </div>
