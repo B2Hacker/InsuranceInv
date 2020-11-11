@@ -85,7 +85,7 @@ export default function locationsPage() {
         })
     };
 
-    const handleClickDeleteLocation = locationID => {
+    const handleClickDeleteLocation = (locationID) => {
         deleteLocation(locationID);
         getLocations();
     };
