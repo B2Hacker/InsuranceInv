@@ -86,10 +86,10 @@ export default function locationsPage() {
     };
 
     const handleClickDeleteLocation = locationID => {
-        viewLocation(locationID).then(location => {
-        deleteLocation(location);
+        const borrandoLocation = allLocations.filter((location) => location._id !== locationID);
+        console.log("DELETING", locationID);
+        deleteLocation(locationID);
         getLocations();
-        })
     };
 
 
