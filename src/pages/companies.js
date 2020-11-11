@@ -84,14 +84,10 @@ export default function companiesPage() {
     };
 
     const handleClickDeleteCompany = companyID => {
-        const borrandoCompany = allCompanies.filter((company) => company.companyID !== companyID);
-        console.log("DELETING", companyID);
-        setAllCompanies(borrandoCompany)
+        const borrandoCompany = allCompanies.filter((company) => company._id !== companyID);
+        console.log("Delete", companyID);
         deleteCompany(companyID);
-        setNewCompany(true);
-        setShowElements(true);
-
-        getCompanies();
+        setAllCompanies(borrandoCompany);
     };
 
     return (

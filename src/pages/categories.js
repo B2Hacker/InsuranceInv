@@ -97,15 +97,10 @@ export default function categoriesPage() {
     };
 
     const handleClickDeleteCategory = categoryID => {
-        const borrandoCategory = allCategories.filter((category) => category.categoryID !== categoryID);
-        console.log("DELETING", categoryID);
-        setAllCategories(borrandoCategory)
-
+        const borrandoCategory = allCategories.filter((category) => category._id !== categoryID);
+        console.log("Delete", categoryID);
         deleteCategory(categoryID);
-        setNewCategory(true);
-        setShowElements(true);
-        
-        getCategories();
+        setAllCategories(borrandoCategory);
         getSubCategories();
     };
 
@@ -182,16 +177,11 @@ export default function categoriesPage() {
     };
 
     const handleClickDeleteSubCategory = subcategoryID => {
-        const borrandoSubCategory = allSubCategories.filter((subcategory) => subcategory.subcategoryID !== subcategoryID);
-        console.log("DELETING", subcategoryID);
-        setAllSubCategories(borrandoSubCategory)
-
+        const borrandoSubCategory = allSubCategories.filter((subcategory) => subcategory._id !== subcategoryID);
+        console.log("Delete", subcategoryID);
         deleteSubCategory(subcategoryID);
-        setNewSubCategory(true);
-        setShowElements(true);
-
+        setAllSubCategories(borrandoSubCategory);
         getCategories();
-        getSubCategories();
     };
 
 

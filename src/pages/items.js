@@ -140,15 +140,10 @@ export default function itemsPage() {
     };
 
     const handleClickDeleteItem = itemID => {
-        const borrandoItem = allItems.filter((item) => item.itemID !== itemID);
+        const borrandoItem = allItems.filter((item) => item._id !== itemID);
         console.log("DELETING", itemID);
-        setAllItems(borrandoItem)
-
         deleteItem(itemID);
-        setNewItem(true);
-        setShowElements(true);
-
-        getItems();
+        setAllItems(borrandoItem)
     };
 
     return (

@@ -95,15 +95,10 @@ export default function roomsPage() {
     };
 
     const handleClickDeleteRoom = roomID => {
-        const borrandoRoom = allRooms.filter((room) => room.roomID !== roomID);
+        const borrandoRoom = allRooms.filter((room) => room._id !== roomID);
         console.log("DELETING", roomID);
-        setAllRooms(borrandoRoom)
-
         deleteRoom(roomID);
-        setNewRoom(true);
-        setShowElements(true);
-
-        getRooms();
+        setAllRooms(borrandoRoom)
     };
 
     return (

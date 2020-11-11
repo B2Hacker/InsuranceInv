@@ -104,15 +104,10 @@ export default function contractsPage() {
     };
 
     const handleClickDeleteContract = contractID => {
-        const borrandoContract = allContracts.filter((contract) => contract.contractID !== contractID);
+        const borrandoContract = allContracts.filter((contract) => contract._id !== contractID);
         console.log("DELETING", contractID);
-        setAllContracts(borrandoContract)
-
         deleteContract(contractID);
-        setNewContract(true);
-        setShowElements(true);
-
-        getContracts();
+        setAllContracts(borrandoContract)
     };
 
     return (

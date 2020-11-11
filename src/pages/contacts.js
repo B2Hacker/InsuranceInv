@@ -95,15 +95,10 @@ export default function contactsPage() {
     };
 
     const handleClickDeleteContact = contactID => {
-        const borrandoContact = allContacts.filter((contact) => contact.contactID !== contactID);
+        const borrandoContact = allContacts.filter((contact) => contact._id !== contactID);
         console.log("DELETING", contactID);
-        setAllContacts(borrandoContact)
-
         deleteContact(contactID);
-        setNewContact(true);
-        setShowElements(true);
-
-        getContacts();
+        setAllContacts(borrandoContact)
     };
 
     return (

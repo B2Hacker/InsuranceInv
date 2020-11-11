@@ -20,7 +20,7 @@ dbConnect();
 
 export const seedSubCategory = async () => {
     try {
-        const loop = 5;
+        const loop = 10;
         const subCategories = [];
 
         for (let i = 0; i < loop; i++) {
@@ -48,7 +48,7 @@ export const seedSubCategory = async () => {
 
 export const seedCategory = async () => {
     try {
-        const loop = 5;
+        const loop = 10;
         const categories = [];
         const allSubCategories = await SubCategory.find();
 
@@ -80,7 +80,7 @@ export const seedCategory = async () => {
 
 export const seedCompany = async () => {
     try {
-        const loop = 5;
+        const loop = 10;
         const companies = [];
 
         for (let i = 0; i < loop; i++) {
@@ -125,7 +125,7 @@ export const seedCompany = async () => {
 
 export const seedContact = async () => {
     try {
-        const loop = 5;
+        const loop = 10;
         const contacts = [];
         const allCompanies = await Company.find();
 
@@ -174,7 +174,7 @@ export const seedContact = async () => {
 
 export const seedContract = async () => {
     try {
-        const loop = 5;
+        const loop = 10;
         const contracts = [];
         const allCompanies = await Company.find();
         const allContacts= await Contact.find();
@@ -218,7 +218,7 @@ export const seedContract = async () => {
 
 export const seedLocation = async () => {
     try {
-        const loop = 15;
+        const loop = 10;
         const locations = [];
 
         for (let i = 0; i < loop; i++) {
@@ -256,7 +256,7 @@ export const seedLocation = async () => {
 
 export const seedRoom = async () => {
     try {
-        const loop = 5;
+        const loop = 10;
         const rooms = [];
         const allLocations = await Location.find();
 
@@ -288,7 +288,7 @@ export const seedRoom = async () => {
 
 export const seedCondition = async () => {
     try {
-        const loop = 15;
+        const loop = 10;
         const conditions = [];
 
         for (let i = 0; i < loop; i++) {
@@ -316,7 +316,7 @@ export const seedCondition = async () => {
 
 export const seedItem = async () => {
     try {
-        const loop = 5;
+        const loop = 10;
         const items = [];
         const allLocations= await Location.find();
         const allRooms= await Room.find();
