@@ -86,10 +86,8 @@ export default function locationsPage() {
     };
 
     const handleClickDeleteLocation = locationID => {
-        const borrandoLocation = allLocations.filter((location) => location._id !== locationID);
-        console.log("DELETING", locationID);
         deleteLocation(locationID);
-        setAllLocations(borrandoLocation)
+        getLocations();
     };
 
 
