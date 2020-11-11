@@ -89,10 +89,9 @@ export default function locationsPage() {
         viewLocation(locationID).then(location => {
         deleteLocation(location);
         getLocations();
+        })
     };
 
-    const handleClickDeleteCondition = conditionID => {
-        getCondition(conditionID).then(condition => {
 
     return (
         <div >
