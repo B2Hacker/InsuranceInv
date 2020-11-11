@@ -3,11 +3,13 @@ import { viewAllCompanies, viewCompany } from "../../src/lib/apiCompany";
 import ListContact from "../../components/List/ListContact";
 import styles from '../../styles/Home.module.css';
 import ModalContact from '../../components/Modal/ModalContact';
+import ModalDelete from "../../components/Modal/ModalDelete";
 
 export default function contactsPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
+    const [showDeleteModal, setShowDeleteModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
     const [allContacts, setAllContacts] = React.useState([]);
     const [allCompanies, setAllCompanies] = React.useState([]);
@@ -80,11 +82,6 @@ export default function contactsPage() {
 
     };
 
-    const handleClickOnCancelNewContact = () => {
-        setNewContact({})
-        setShowElements(true);
-    };
-
     const handleClickEditContact = contactID => {
         viewContact(contactID).then(contact => {
             console.log("FOUND IT", contact);
@@ -94,12 +91,24 @@ export default function contactsPage() {
         })
     };
 
-    const handleClickDeleteContact = contactID => {
-        const borrandoContact = allContacts.filter((contact) => contact._id !== contactID);
-        console.log("DELETING", contactID);
-        deleteContact(contactID);
-        setAllContacts(borrandoContact)
+    const handleCloseDeleteModal = () => {
+        setShowDeleteModal(false);
     };
+
+    const handleClickDeleteContact = contact => {
+        setNewContact(contact);
+        setShowDeleteModal(true);
+    };
+
+
+    const DeleteContactOnClick = () => {
+        console.log("DELETING", newContact);
+        deleteContact(newContact._id).then(() => {
+            getContacts();
+            setNewContact({});
+            setShowDeleteModal(false);
+        })
+    }
 
     return (
         <div >
@@ -114,6 +123,14 @@ export default function contactsPage() {
                 newContact={newContact}
                 editMode={editMode}
             />
+
+            <ModalDelete
+                open={showDeleteModal}
+                handleClose={handleCloseDeleteModal}
+                handleDelete={DeleteContactOnClick}
+                item={newContact}
+            />
+
             <div >
                 <div className={styles.main}>
                     <h3>Contacts</h3>

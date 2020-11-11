@@ -8,11 +8,13 @@ import { viewAllContracts, viewContract } from "../../src/lib/apiContract";
 import ListItem from "../../components/List/ListItem";
 import styles from '../../styles/Home.module.css';
 import ModalItem from '../../components/Modal/ModalItem';
+import ModalDelete from "../../components/Modal/ModalDelete";
 
 export default function itemsPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
+    const [showDeleteModal, setShowDeleteModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
     const [allItems, setAllItems] = React.useState([]);
     const [allLocations, setAllLocations] = React.useState([]);
@@ -125,11 +127,6 @@ export default function itemsPage() {
 
     };
 
-    const handleClickOnCancelNewItem = () => {
-        setNewItem({})
-        setShowElements(true);
-    };
-
     const handleClickEditItem = itemID => {
         viewItem(itemID).then(item => {
             console.log("FOUND IT", item);
@@ -139,12 +136,24 @@ export default function itemsPage() {
         })
     };
 
-    const handleClickDeleteItem = itemID => {
-        const borrandoItem = allItems.filter((item) => item._id !== itemID);
-        console.log("DELETING", itemID);
-        deleteItem(itemID);
-        setAllItems(borrandoItem)
+    const handleCloseDeleteModal = () => {
+        setShowDeleteModal(false);
     };
+
+    const handleClickDeleteItem = item => {
+        setNewItem(item);
+        setShowDeleteModal(true);
+    };
+
+
+    const DeleteItemOnClick = () => {
+        console.log("DELETING", newItem);
+        deleteItem(newItem._id).then(() => {
+            getItems();
+            setNewItem({});
+            setShowDeleteModal(false);
+        })
+    }
 
     return (
         <div >
@@ -164,6 +173,14 @@ export default function itemsPage() {
                 newItem={newItem}
                 editMode={editMode}
             />
+
+            <ModalDelete
+                open={showDeleteModal}
+                handleClose={handleCloseDeleteModal}
+                handleDelete={DeleteItemOnClick}
+                item={newItem}
+            />
+
             <div >
                 <div className={styles.main}>
                     <h3>Items</h3>

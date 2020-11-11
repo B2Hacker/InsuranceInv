@@ -3,11 +3,13 @@ import { viewAllLocations, viewLocation } from "../../src/lib/apiLocation";
 import ListRoom from "../../components/List/ListRoom";
 import styles from '../../styles/Home.module.css';
 import ModalRoom from '../../components/Modal/ModalRoom';
+import ModalDelete from "../../components/Modal/ModalDelete";
 
 export default function roomsPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
+    const [showDeleteModal, setShowDeleteModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
     const [allRooms, setAllRooms] = React.useState([]);
     const [allLocations, setAllLocations] = React.useState([]);
@@ -80,11 +82,6 @@ export default function roomsPage() {
 
     };
 
-    const handleClickOnCancelNewRoom = () => {
-        setNewRoom({})
-        setShowElements(true);
-    };
-
     const handleClickEditRoom = roomID => {
         viewRoom(roomID).then(room => {
             console.log("FOUND IT", room);
@@ -94,12 +91,24 @@ export default function roomsPage() {
         })
     };
 
-    const handleClickDeleteRoom = roomID => {
-        const borrandoRoom = allRooms.filter((room) => room._id !== roomID);
-        console.log("DELETING", roomID);
-        deleteRoom(roomID);
-        setAllRooms(borrandoRoom)
+    const handleCloseDeleteModal = () => {
+        setShowDeleteModal(false);
     };
+
+    const handleClickDeleteRoom = room => {
+        setNewRoom(room);
+        setShowDeleteModal(true);
+    };
+
+
+    const DeleteRoomOnClick = () => {
+        console.log("DELETING", newRoom);
+        deleteRoom(newRoom._id).then(() => {
+            getRooms();
+            setNewRoom({});
+            setShowDeleteModal(false);
+        })
+    }
 
     return (
         <div >
@@ -114,6 +123,14 @@ export default function roomsPage() {
                 newRoom={newRoom}
                 editMode={editMode}
             />
+
+            <ModalDelete
+                open={showDeleteModal}
+                handleClose={handleCloseDeleteModal}
+                handleDelete={DeleteRoomOnClick}
+                item={newRoom}
+            />
+
             <div >
                 <div className={styles.main}>
                     <h3>Rooms</h3>

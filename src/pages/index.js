@@ -12,7 +12,7 @@ export default function Home(props) {
                 </h1>
 
                 <p className={styles.description}>
-                    Website to check on Insurance Info
+                    Website to check insurance info on Items
         </p>
 
             </main>

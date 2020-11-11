@@ -57,7 +57,7 @@ export default function ListContact(props) {
                                     <td>{contact.address ? contact.address.country : ""}</td>
                                     <td>
                                         <button type="button" className="btn btn-primary" onClick={() => handleClickEditContact(contact._id)}>Edit&nbsp;<i className="fas fa-edit"></i></button>
-                                        <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteContact(contact._id)}>Delete&nbsp;<i className="fas fa-trash-alt"></i></button>
+                                        <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteContact(contact)}>Delete&nbsp;<i className="fas fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                             ))}

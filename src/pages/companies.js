@@ -2,11 +2,13 @@ import { viewAllCompanies, viewCompany, createCompany, updateCompany, deleteComp
 import ListCompany from "../../components/List/ListCompany";
 import styles from '../../styles/Home.module.css';
 import ModalCompany from '../../components/Modal/ModalCompany';
+import ModalDelete from "../../components/Modal/ModalDelete";
 
 export default function companiesPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
+    const [showDeleteModal, setShowDeleteModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
     const [allCompanies, setAllCompanies] = React.useState([]);
     const [newCompany, setNewCompany] = React.useState({});
@@ -69,11 +71,6 @@ export default function companiesPage() {
 
     };
 
-    const handleClickOnCancelNewCompany = () => {
-        setNewCompany({})
-        setShowElements(true);
-    };
-
     const handleClickEditCompany = companyID => {
         viewCompany(companyID).then(company => {
             console.log("FOUND IT", company);
@@ -83,12 +80,24 @@ export default function companiesPage() {
         })
     };
 
-    const handleClickDeleteCompany = companyID => {
-        const borrandoCompany = allCompanies.filter((company) => company._id !== companyID);
-        console.log("Delete", companyID);
-        deleteCompany(companyID);
-        setAllCompanies(borrandoCompany);
+    const handleCloseDeleteModal = () => {
+        setShowDeleteModal(false);
     };
+
+    const handleClickDeleteCompany = company => {
+        setNewCompany(company);
+        setShowDeleteModal(true);
+    };
+
+
+    const DeleteCompanyOnClick = () => {
+        console.log("DELETING", newCompany);
+        deleteCompany(newCompany._id).then(() => {
+            getCompanies();
+            setNewCompany({});
+            setShowDeleteModal(false);
+        })
+    }
 
     return (
         <div >
@@ -102,6 +111,14 @@ export default function companiesPage() {
                 newCompany={newCompany}
                 editMode={editMode}
             />
+
+            <ModalDelete
+                open={showDeleteModal}
+                handleClose={handleCloseDeleteModal}
+                handleDelete={DeleteCompanyOnClick}
+                item={newCompany}
+            />
+
             <div >
                 <div className={styles.main}>
                     <h3>Companies</h3>

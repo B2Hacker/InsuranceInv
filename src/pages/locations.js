@@ -2,11 +2,13 @@ import { viewAllLocations, viewLocation, createLocation, updateLocation, deleteL
 import ListLocation from "../../components/List/ListLocation";
 import styles from '../../styles/Home.module.css';
 import ModalLocation from '../../components/Modal/ModalLocation';
+import ModalDelete from "../../components/Modal/ModalDelete";
 
 export default function locationsPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
+    const [showDeleteModal, setShowDeleteModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
     const [allLocations, setAllLocations] = React.useState({});
     const [newLocation, setNewLocation] = React.useState({});
@@ -69,11 +71,6 @@ export default function locationsPage() {
 
     };
 
-    const handleClickOnCancelNewLocation = () => {
-        setNewLocation({})
-        setShowElements(true);
-    };
-
     const handleClickEditLocation = locationID => {
         viewLocation(locationID).then(location => {
             console.log("FOUND IT", location);
@@ -85,12 +82,24 @@ export default function locationsPage() {
         })
     };
 
-    const handleClickDeleteLocation = locationID => {
-        const borrandoLocation = allLocations.filter((location) => location._id !== locationID);
-        console.log("DELETING", locationID);
-        deleteLocation(locationID);
-        setAllLocations(borrandoLocation);
+    const handleCloseDeleteModal = () => {
+        setShowDeleteModal(false);
     };
+
+    const handleClickDeleteLocation = location => {
+        setNewLocation(location);
+        setShowDeleteModal(true);
+    };
+
+
+    const DeleteLocationOnClick = () => {
+        console.log("DELETING", newLocation);
+        deleteLocation(newLocation._id).then(() => {
+            getLocations();
+            setNewLocation({});
+            setShowDeleteModal(false);
+        })
+    }
 
 
     return (
@@ -105,6 +114,14 @@ export default function locationsPage() {
                 newLocation={newLocation}
                 editMode={editMode}
             />
+
+            <ModalDelete
+                open={showDeleteModal}
+                handleClose={handleCloseDeleteModal}
+                handleDelete={DeleteLocationOnClick}
+                item={newLocation}
+            />
+
             <div >
                 <div className={styles.main}>
                     <h3>Locations</h3>

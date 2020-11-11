@@ -2,12 +2,13 @@ import { viewAllConditions, viewCondition, createCondition, updateCondition, del
 import ListCondition from "../../components/List/ListCondition";
 import styles from '../../styles/Home.module.css';
 import ModalCondition from '../../components/Modal/ModalCondition';
-import { get } from "mongoose";
+import ModalDelete from "../../components/Modal/ModalDelete";
 
 export default function conditionsPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
+    const [showDeleteModal, setShowDeleteModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
     const [allConditions, setAllConditions] = React.useState([]);
     const [newCondition, setNewCondition] = React.useState({});
@@ -70,11 +71,6 @@ export default function conditionsPage() {
 
     };
 
-    const handleClickOnCancelNewCondition = () => {
-        setNewCondition({})
-        setShowElements(true);
-    };
-
     const handleClickEditCondition = conditionID => {
         viewCondition(conditionID).then(condition => {
             console.log("FOUND IT", condition);
@@ -84,12 +80,24 @@ export default function conditionsPage() {
         })
     };
 
-    const handleClickDeleteCondition = conditionID => {
-        const borrandoCondition = allConditions.filter((condition) => condition._id !== conditionID);
-        console.log("Delete", conditionID);
-        deleteCondition(conditionID);
-        setAllConditions(borrandoCondition);
+    const handleCloseDeleteModal = () => {
+        setShowDeleteModal(false);
     };
+
+    const handleClickDeleteCondition = condition => {
+        setNewCondition(condition);
+        setShowDeleteModal(true);
+    };
+
+
+    const DeleteConditionOnClick = () => {
+        console.log("DELETING", newCondition);
+        deleteCondition(newCondition._id).then(() => {
+            getConditions();
+            setNewCondition({});
+            setShowDeleteModal(false);
+        })
+    }
 
 
     return (
@@ -104,6 +112,14 @@ export default function conditionsPage() {
                 newCondition={newCondition}
                 editMode={editMode}
             />
+
+            <ModalDelete
+                open={showDeleteModal}
+                handleClose={handleCloseDeleteModal}
+                handleDelete={DeleteConditionOnClick}
+                item={newCondition}
+            />
+
             <div >
                 <div>
                     <h3>Conditions</h3>

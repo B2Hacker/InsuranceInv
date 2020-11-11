@@ -4,11 +4,13 @@ import { viewAllCompanies, viewCompany } from "../../src/lib/apiCompany";
 import ListContract from "../../components/List/ListContract";
 import styles from '../../styles/Home.module.css';
 import ModalContract from '../../components/Modal/ModalContract';
+import ModalDelete from "../../components/Modal/ModalDelete";
 
 export default function contractsPage() {
 
     const [showElements, setShowElements] = React.useState(true);
     const [showModal, setShowModal] = React.useState(false);
+    const [showDeleteModal, setShowDeleteModal] = React.useState(false);
     const [editMode, setEditMode] = React.useState(false);
     const [allContracts, setAllContracts] = React.useState([]);
     const [allContacts, setAllContacts] = React.useState([]);
@@ -89,11 +91,6 @@ export default function contractsPage() {
 
     };
 
-    const handleClickOnCancelNewContract = () => {
-        setNewContract({})
-        setShowElements(true);
-    };
-
     const handleClickEditContract = contractID => {
         viewContract(contractID).then(contract => {
             console.log("FOUND IT", contract);
@@ -103,12 +100,24 @@ export default function contractsPage() {
         })
     };
 
-    const handleClickDeleteContract = contractID => {
-        const borrandoContract = allContracts.filter((contract) => contract._id !== contractID);
-        console.log("DELETING", contractID);
-        deleteContract(contractID);
-        setAllContracts(borrandoContract)
+    const handleCloseDeleteModal = () => {
+        setShowDeleteModal(false);
     };
+
+    const handleClickDeleteContract = contract => {
+        setNewContract(contract);
+        setShowDeleteModal(true);
+    };
+
+
+    const DeleteContractOnClick = () => {
+        console.log("DELETING", newContract);
+        deleteContract(newContract._id).then(() => {
+            getContracts();
+            setNewContract({});
+            setShowDeleteModal(false);
+        })
+    }
 
     return (
         <div >
@@ -124,6 +133,14 @@ export default function contractsPage() {
                 newContract={newContract}
                 editMode={editMode}
             />
+
+            <ModalDelete
+                open={showDeleteModal}
+                handleClose={handleCloseDeleteModal}
+                handleDelete={DeleteContractOnClick}
+                item={newContract}
+            />
+
             <div >
                 <div className={styles.main}>
                     <h3>Contracts</h3>

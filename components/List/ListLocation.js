@@ -41,7 +41,7 @@ export default function ListLocation(props) {
                                     <td>{location.address ? location.address.country : ""}</td>
                                     <td>
                                         <button type="button" className="btn btn-primary" onClick={() => handleClickEditLocation(location._id)}>Edit&nbsp;<i className="fas fa-edit"></i></button>
-                                        <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteLocation(location._id)}>Delete&nbsp;<i className="fas fa-trash-alt"></i></button>
+                                        <button type="button" className="btn btn-danger" onClick={() => handleClickDeleteLocation(location)}>Delete&nbsp;<i className="fas fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                             ))}
