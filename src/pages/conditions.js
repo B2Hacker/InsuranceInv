@@ -121,11 +121,11 @@ export default function conditionsPage() {
             />
 
             <div >
-                <div>
+                <div className={styles.tabletop}>
                     <h3>Conditions</h3>
                 </div>
 
-                <div>
+                <div className={styles.tabletop}>
                     {showElements ?
                         <button
                             className="btn btn-success"

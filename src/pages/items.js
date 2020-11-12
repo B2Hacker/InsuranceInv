@@ -182,11 +182,11 @@ export default function itemsPage() {
             />
 
             <div >
-                <div className={styles.main}>
+                <div className={styles.tabletop}>
                     <h3>Items</h3>
                 </div>
 
-                <div className={styles.main}>
+                <div className={styles.tabletop}>
                     {showElements ?
                         <button
                             className="btn btn-success"

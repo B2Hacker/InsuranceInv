@@ -241,11 +241,11 @@ export default function categoriesPage() {
             />
 
             <div >
-                <div className={styles.main}>
+                <div className={styles.tabletop}>
                     <h3>Categories</h3>
                 </div>
 
-                <div className={styles.main}>
+                <div className={styles.tabletop}>
                     {showElements ?
                         <button
                             className="btn btn-success"
@@ -264,11 +264,11 @@ export default function categoriesPage() {
                     />
                 </div>
 
-                <div className={styles.main}>
+                <div className={styles.tabletop}>
                     <h3>SubCategories</h3>
                 </div>
 
-                <div className={styles.main}>
+                <div className={styles.tabletop}>
                     {showElements ?
                         <button
                             className="btn btn-success"

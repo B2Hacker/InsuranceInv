@@ -123,11 +123,11 @@ export default function locationsPage() {
             />
 
             <div >
-                <div className={styles.main}>
+                <div className={styles.tabletop}>
                     <h3>Locations</h3>
                 </div>
 
-                <div className={styles.main}>
+                <div className={styles.tabletop}>
                     {showElements ?
                         <button
                             className="btn btn-success"

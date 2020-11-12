@@ -132,11 +132,11 @@ export default function roomsPage() {
             />
 
             <div >
-                <div className={styles.main}>
+                <div className={styles.tabletop}>
                     <h3>Rooms</h3>
                 </div>
 
-                <div className={styles.main}>
+                <div className={styles.tabletop}>
                     {showElements ?
                         <button
                             className="btn btn-success"
