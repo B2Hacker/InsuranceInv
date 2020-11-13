@@ -15,7 +15,7 @@ export default function ListRoom(props) {
                             <tr className="text-white">
                                 <th>Name</th>
                                 <th>Description</th>
-                                <th>Image</th>
+                                {/* <th>Image</th> */}
                                 <th>Location</th>
                                 <th>Action</th>
                             </tr>
@@ -25,7 +25,7 @@ export default function ListRoom(props) {
                                 <tr key={room._id}>
                                     <td>{room.name}</td>
                                     <td>{room.description}</td>
-                                    <td><img src={room.pictures} className="img-fluid" alt="" /></td>
+                                    {/* <td><img src={room.pictures} className="img-fluid" alt="" /></td> */}
                                     <td>{room.location && room.location[0] ? `${room.location[0].name}` : ""}</td>
                                     <td>
                                         <button type="button" className="btn btn-primary" onClick={() => handleClickEditRoom(room._id)}>Edit&nbsp;<i className="fas fa-edit"></i></button>

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const SubCategory = require('./SubCategory');
 
 const CategorySchema = new mongoose.Schema({
     name: {type: String, required: true, unique: true, trim: true},
@@ -6,7 +7,7 @@ const CategorySchema = new mongoose.Schema({
     pictures: {type: Array, default: []},
     subCategories: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "SubCategory"
+        ref: SubCategory
     }],
 },
     {timestamps: true}

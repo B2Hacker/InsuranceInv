@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
+const Location = require('./Location');
+const Room = require('./Room');
+const Category = require('./Category');
 const Condition = require('./Condition');
+const Company = require('./Company');
+const Contract = require('./Contract');
 
 const ItemSchema = new mongoose.Schema({
     name: {type: String, required: true, unique: true, trim: true},
@@ -7,15 +12,15 @@ const ItemSchema = new mongoose.Schema({
     pictures: {type: Array, default: []},
     location: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Location"
+        ref: Location
     },
     room: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Room"
+        ref: Room
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Category"
+        ref: Category
     },
     condition: {
         type: mongoose.Schema.Types.ObjectId,
@@ -30,13 +35,13 @@ const ItemSchema = new mongoose.Schema({
         purchaseDate: {type: Date},
         company: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Company",
+            ref: Company,
         },
         cost: {type: Number, trim: true},
         waranty: {type: Boolean, default: true},
         contract: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Contract",
+            ref: Contract,
         },
     purchaseNotes: {type: String, trim: true, default: ""}
     }

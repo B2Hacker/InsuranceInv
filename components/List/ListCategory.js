@@ -17,7 +17,7 @@ export default function ListCategory(props) {
                             <tr className="text-white">
                                 <th>Name</th>
                                 <th>Description</th>
-                                <th>Image</th>
+                                {/* <th>Image</th> */}
                                 <th>SubCategory</th>
                                 <th>Action</th>
                             </tr>
@@ -27,7 +27,7 @@ export default function ListCategory(props) {
                                 <tr key={category._id}>
                                     <td>{category.name}</td>
                                     <td>{category.description}</td>
-                                    <td><img src={category.pictures} className="img-fluid" alt="" /></td>
+                                    {/* <td><img src={category.pictures} className="img-fluid" alt="" /></td> */}
                                     <td>{category.subCategories && category.subCategories[0] ? `${category.subCategories[0].name}` : ""}</td>
                                     <td>
                                         <button type="button" className="btn btn-primary" onClick={() => handleClickEditCategory(category._id)}>Edit&nbsp;<i className="fas fa-edit"></i></button>

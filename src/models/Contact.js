@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Company = require('./Company');
 
 const ContactSchema = new mongoose.Schema({
     name: {type: String, required: true, unique: true, trim: true},
@@ -8,7 +9,7 @@ const ContactSchema = new mongoose.Schema({
     lastName: {type: String, trim: true},
     company: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Company"
+        ref: Company
     },
     contactInfo: {
         tel: {type: String, trim: true},

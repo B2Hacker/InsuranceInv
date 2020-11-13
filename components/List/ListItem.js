@@ -17,7 +17,7 @@ export default function ListItem(props) {
                             <tr className="text-white">
                                 <th>Name</th>
                                 <th>Description</th>
-                                <th>Image</th>
+                                {/* <th>Image</th> */}
                                 <th>Location</th>
                                 <th>Room</th>
                                 <th>Category</th>
@@ -41,7 +41,7 @@ export default function ListItem(props) {
                                 <tr key={item._id}>
                                     <td>{item.name}</td>
                                     <td>{item.description}</td>
-                                    <td><img src={item.pictures} className="img-fluid" alt="" /></td>
+                                    {/* <td><img src={item.pictures} className="img-fluid" alt="" /></td> */}
                                     <td>{item.location ? `${item.location.name}` : ""}</td>
                                     <td>{item.room ? `${item.room.name}` : ""}</td>
                                     <td>{item.category ? `${item.category.name}` : ""}</td>

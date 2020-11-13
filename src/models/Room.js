@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Location = require('./Location');
 
 const RoomSchema = new mongoose.Schema({
     name: {type: String, required: true, unique: true, trim: true},
@@ -6,7 +7,7 @@ const RoomSchema = new mongoose.Schema({
     pictures: {type: Array, default: []},
     location: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Location"
+        ref: Location
     }],
 },
     {timestamps: true}
