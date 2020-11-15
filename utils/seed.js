@@ -98,7 +98,7 @@ export const seedCompany = async () => {
                         url: faker.internet.url()
                     },
                     address: {
-                        streetNumber: faker.address.zipCode(),
+                        streetNumber: faker.random.number(),
                         street: faker.address.streetAddress(),
                         street2: faker.address.secondaryAddress(),
                         city: faker.address.city(),
@@ -147,7 +147,7 @@ export const seedContact = async () => {
                         url: faker.internet.url()
                     },
                     address: {
-                        streetNumber: faker.address.zipCode(),
+                        streetNumber: faker.random.number(),
                         street: faker.address.streetAddress(),
                         street2: faker.address.secondaryAddress(),
                         city: faker.address.city(),
@@ -229,7 +229,7 @@ export const seedLocation = async () => {
                     pictures: faker.image.image(),
                     status: faker.lorem.word(),
                     address: {
-                        streetNumber: faker.address.zipCode(),
+                        streetNumber: faker.random.number(),
                         street: faker.address.streetAddress(),
                         street2: faker.address.secondaryAddress(),
                         city: faker.address.city(),

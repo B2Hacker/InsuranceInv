@@ -152,6 +152,7 @@ export default function AddItem(props) {
                 <label>Purchase Date</label>
                 <input
                     type="date"
+                    required pattern="\d{4}-\d{2}-\d{2}"
                     size="small"
                     id="purchaseDate-input"
                     label="PurchaseDate"
