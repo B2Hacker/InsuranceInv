@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 export default function NavBar() {
     return (
         <div>
-            <nav className="navbar navbar-expand-sm navbar-dark bg-success">
+            <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
                 <a className="navbar-brand mr-3" href="/">
                     <i className="far fa-address-card d-inline-block align-center"></i>
                 &nbsp;

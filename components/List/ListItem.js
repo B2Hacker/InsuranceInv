@@ -13,7 +13,7 @@ export default function ListItem(props) {
             <div className={styles.container}>
                 <div className="table-responsive">
                     <table className="datatable table-bordered table-sm table-hover" >
-                        <thead className="bg-success">
+                        <thead className="table-primary">
                             <tr className="text-white">
                                 <th>Name</th>
                                 <th>Description</th>
